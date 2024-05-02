@@ -1,0 +1,120 @@
+# EMU-SDMS integration
+
+```{r}
+#| echo: false
+
+library(praatpicture)
+```
+
+The EMU Speech Database Management System is an excellent tool for phonetic corpus management, integrated with R through the `emuR` package. If you're an EMU user, it may have struck you that there aren't really many dedicated plotting tools. Especially if you've wanted to make plots with aligned annotations, your best option was really to convert your EMU annotations to a Praat-readable format. The `praatpicture` package comes with a function `emupicture()` that makes this process much easier.
+
+::: {.callout-tip}
+## Where do I learn more about the EMU-SDMS?
+
+Colleagues and I are currently working on a (hopefully!) user-friendly introduction to the EMU-SDMS which you can find [here](https://rpuggaardrode.github.io/emuintro/){target='_blank'}. It's not quite ready yet. For a more in depth introduction, the [manual](https://ips-lmu.github.io/The-EMU-SDMS-Manual/index.html){target='_blank'} is very helpful.
+:::
+
+## Basic usage
+
+`emupicture()` can only be used if you have an EMU database loaded in R. We'll load a toy database for this purpose:
+
+```{r}
+#| warning: false
+#| message: false
+
+library(emuR)
+db <- load_emuDB('ex/aarhus_emuDB')
+```
+
+If we have a look at this database, we'll see that it has just one 'session' and one 'bundle' (i.e. a single sound file).
+
+```{r}
+#| eval: false
+
+serve(db)
+```
+
+You should now see this view: 
+
+![](img/emuDB.png)
+
+You'll see just two annotation tiers, but there are also some hidden ones in this database, which we can see with the `list_levelDefinitions()` function:
+
+```{r}
+list_levelDefinitions(db)
+```
+
+Plotting the view you see when you `serve()` the database in a `praatpicture()`-like manner is very simple. There are just a few arguments that are different: `emupicture()` requires the handle of a loaded EMU database `db_handle`, a `bundle` name, and optionally a `session` name. We can see what these are in the image above, and if you're used to the EMU-SDMS, these concepts should all be familiar.
+
+Here, we'll load the view we see in the database, zoomed in a bit and plotting just the same two annotation tiers on the picture above. These arguments will all be familiar from previous sections of this manual.
+
+```{r}
+#| fig-align: center
+
+emupicture(db_handle = db,
+           session = '_044',
+           bundle = '044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA',
+           start = 1.4, end = 3.1,
+           tg_tiers = c('phone', 'landmarks'))
+```
+
+`emupicture()` will otherwise accept all the same arguments as `praatpicture()`.
+
+## Plotting data from SSFF files {#sec-ssff}
+
+If you plot derived signals like pitch with `emupicture()`, it'll by default be calculated on the fly, as in `praatpicture()`:
+
+```{r}
+#| fig-align: center
+
+emupicture(db_handle = db,
+           session = '_044',
+           bundle = '044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA',
+           start = 1.4, end = 3.1,
+           tg_tiers = c('phone', 'landmarks'),
+           frames = c('sound', 'pitch', 'TextGrid'),
+           pitch_plotType = 'speckle', 
+           pitch_freqRange = c(120, 300))
+```
+
+As we've seen previously, `praatpicture()` allows you to calculate these derived signals in Praat, save them, and plot those signals instead of calculating signals on the fly. If you're an EMU user, you're likely familiar with SSFF (simple signal file format) tracks, which is a way of associating any signal, derived or otherwise, with a database. Using `emupicture()`, you can choose to plot SSFF tracks instead of calculating signals on the fly. 
+
+Our toy database has two different SSFF tracks associated with it, which we can check with the `list_ssffTrackDefinitions()` function.
+
+```{r}
+list_ssffTrackDefinitions(db)
+```
+
+`f0` is a pitch track calculated using Praat, and `rf0` is a pitch track calculated using [REAPER](https://github.com/google/REAPER){target='_blank'}. If you want to use one of these SSFF tracks instead of calculating pitch on the fly, you can do it using the `pitch_ssffExt` argument. There are similar arguments for `formant_ssffExt` and `intensity_ssffExt`.
+
+Here's the pitch track calculated using Praat:
+
+```{r}
+#| fig-align: center
+
+emupicture(db_handle = db,
+           session = '_044',
+           bundle = '044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA',
+           start = 1.4, end = 3.1,
+           tg_tiers = c('phone', 'landmarks'),
+           frames = c('sound', 'pitch', 'TextGrid'),
+           pitch_plotType = 'speckle', 
+           pitch_freqRange = c(120, 300),
+           pitch_ssffExt = 'f0')
+```
+
+And here's the pitch track calculated using REAPER:
+
+```{r}
+#| fig-align: center
+
+emupicture(db_handle = db,
+           session = '_044',
+           bundle = '044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA',
+           start = 1.4, end = 3.1,
+           tg_tiers = c('phone', 'landmarks'),
+           frames = c('sound', 'pitch', 'TextGrid'),
+           pitch_plotType = 'speckle', 
+           pitch_freqRange = c(120, 300),
+           pitch_ssffExt = 'rf0')
+```

@@ -1,0 +1,680 @@
+{
+  "name": "044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA",
+  "annotates": "044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA.wav",
+  "sampleRate": 44100,
+  "levels": [
+    {
+      "name": "phone",
+      "type": "SEGMENT",
+      "items": [
+        {
+          "id": 1,
+          "sampleStart": 0,
+          "sampleDur": 0,
+          "labels": [
+            {
+              "name": "phone",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "sampleStart": 1,
+          "sampleDur": 1322,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "ˈɛɐ̯"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "sampleStart": 1324,
+          "sampleDur": 71441,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "sp"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "sampleStart": 72766,
+          "sampleDur": 3086,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "n̩"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "sampleStart": 75853,
+          "sampleDur": 1763,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "d"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "sampleStart": 77617,
+          "sampleDur": 2204,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "ˈi:ˀ"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "sampleStart": 79822,
+          "sampleDur": 1578,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "n"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "sampleStart": 81401,
+          "sampleDur": 2851,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "n"
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "sampleStart": 84253,
+          "sampleDur": 7034,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "ˈæː"
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "sampleStart": 91288,
+          "sampleDur": 3527,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "b"
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "sampleStart": 94816,
+          "sampleDur": 5214,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "o"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "sampleStart": 100031,
+          "sampleDur": 4486,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "ˈɛ"
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "sampleStart": 104518,
+          "sampleDur": 2645,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "l"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "sampleStart": 107164,
+          "sampleDur": 2204,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "ʌ"
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "sampleStart": 109369,
+          "sampleDur": 2645,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "d"
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "sampleStart": 112015,
+          "sampleDur": 2645,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "ˈi:ˀ"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "sampleStart": 114661,
+          "sampleDur": 2645,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "n"
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "sampleStart": 117307,
+          "sampleDur": 2645,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "g"
+            }
+          ]
+        },
+        {
+          "id": 19,
+          "sampleStart": 119953,
+          "sampleDur": 3086,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "ˈɛ"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "sampleStart": 123040,
+          "sampleDur": 3968,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "n"
+            }
+          ]
+        },
+        {
+          "id": 21,
+          "sampleStart": 127009,
+          "sampleDur": 2645,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "b"
+            }
+          ]
+        },
+        {
+          "id": 22,
+          "sampleStart": 129655,
+          "sampleDur": 5732,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "ˌoːˀ"
+            }
+          ]
+        },
+        {
+          "id": 23,
+          "sampleStart": 135388,
+          "sampleDur": 62180,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "sp"
+            }
+          ]
+        },
+        {
+          "id": 24,
+          "sampleStart": 197569,
+          "sampleDur": 824,
+          "labels": [
+            {
+              "name": "phone",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "id": 25,
+          "sampleStart": 198394,
+          "sampleDur": 1,
+          "labels": [
+            {
+              "name": "phone",
+              "value": "b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "word",
+      "type": "ITEM",
+      "items": [
+        {
+          "id": 26,
+          "labels": [
+            {
+              "name": "word",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "id": 27,
+          "labels": [
+            {
+              "name": "word",
+              "value": "er"
+            }
+          ]
+        },
+        {
+          "id": 28,
+          "labels": [
+            {
+              "name": "word",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "id": 29,
+          "labels": [
+            {
+              "name": "word",
+              "value": "han"
+            }
+          ]
+        },
+        {
+          "id": 30,
+          "labels": [
+            {
+              "name": "word",
+              "value": "din"
+            }
+          ]
+        },
+        {
+          "id": 31,
+          "labels": [
+            {
+              "name": "word",
+              "value": "nabo"
+            }
+          ]
+        },
+        {
+          "id": 32,
+          "labels": [
+            {
+              "name": "word",
+              "value": "eller"
+            }
+          ]
+        },
+        {
+          "id": 33,
+          "labels": [
+            {
+              "name": "word",
+              "value": "din"
+            }
+          ]
+        },
+        {
+          "id": 34,
+          "labels": [
+            {
+              "name": "word",
+              "value": "genbo"
+            }
+          ]
+        },
+        {
+          "id": 35,
+          "labels": [
+            {
+              "name": "word",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "id": 36,
+          "labels": [
+            {
+              "name": "word",
+              "value": "blev"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trans",
+      "type": "SEGMENT",
+      "items": [
+        {
+          "id": 37,
+          "sampleStart": 0,
+          "sampleDur": 198395,
+          "labels": [
+            {
+              "name": "trans",
+              "value": "er han din nabo eller din genbo?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "word-autobuildBackup",
+      "type": "SEGMENT",
+      "items": [
+        {
+          "id": 63,
+          "sampleStart": 0,
+          "sampleDur": 0,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "id": 64,
+          "sampleStart": 1,
+          "sampleDur": 1322,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": "er"
+            }
+          ]
+        },
+        {
+          "id": 65,
+          "sampleStart": 1324,
+          "sampleDur": 71441,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "id": 66,
+          "sampleStart": 72766,
+          "sampleDur": 3086,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": "han"
+            }
+          ]
+        },
+        {
+          "id": 67,
+          "sampleStart": 75853,
+          "sampleDur": 5547,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": "din"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "sampleStart": 81401,
+          "sampleDur": 18629,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": "nabo"
+            }
+          ]
+        },
+        {
+          "id": 69,
+          "sampleStart": 100031,
+          "sampleDur": 9337,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": "eller"
+            }
+          ]
+        },
+        {
+          "id": 70,
+          "sampleStart": 109369,
+          "sampleDur": 7937,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": "din"
+            }
+          ]
+        },
+        {
+          "id": 71,
+          "sampleStart": 117307,
+          "sampleDur": 18080,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": "genbo"
+            }
+          ]
+        },
+        {
+          "id": 72,
+          "sampleStart": 135388,
+          "sampleDur": 63005,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "id": 73,
+          "sampleStart": 198394,
+          "sampleDur": 1,
+          "labels": [
+            {
+              "name": "word-autobuildBackup",
+              "value": "blev"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vot",
+      "type": "SEGMENT",
+      "items": []
+    },
+    {
+      "name": "landmarks",
+      "type": "EVENT",
+      "items": [
+        {
+          "id": 74,
+          "samplePoint": 81401,
+          "labels": [
+            {
+              "name": "landmarks",
+              "value": "clo"
+            }
+          ]
+        },
+        {
+          "id": 75,
+          "samplePoint": 84252,
+          "labels": [
+            {
+              "name": "landmarks",
+              "value": "rel"
+            }
+          ]
+        },
+        {
+          "id": 76,
+          "samplePoint": 100030,
+          "labels": [
+            {
+              "name": "landmarks",
+              "value": "offset"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "fromID": 26,
+      "toID": 1
+    },
+    {
+      "fromID": 27,
+      "toID": 2
+    },
+    {
+      "fromID": 28,
+      "toID": 3
+    },
+    {
+      "fromID": 29,
+      "toID": 4
+    },
+    {
+      "fromID": 30,
+      "toID": 5
+    },
+    {
+      "fromID": 30,
+      "toID": 6
+    },
+    {
+      "fromID": 30,
+      "toID": 7
+    },
+    {
+      "fromID": 31,
+      "toID": 8
+    },
+    {
+      "fromID": 31,
+      "toID": 9
+    },
+    {
+      "fromID": 31,
+      "toID": 10
+    },
+    {
+      "fromID": 31,
+      "toID": 11
+    },
+    {
+      "fromID": 32,
+      "toID": 12
+    },
+    {
+      "fromID": 32,
+      "toID": 13
+    },
+    {
+      "fromID": 32,
+      "toID": 14
+    },
+    {
+      "fromID": 33,
+      "toID": 15
+    },
+    {
+      "fromID": 33,
+      "toID": 16
+    },
+    {
+      "fromID": 33,
+      "toID": 17
+    },
+    {
+      "fromID": 34,
+      "toID": 18
+    },
+    {
+      "fromID": 34,
+      "toID": 19
+    },
+    {
+      "fromID": 34,
+      "toID": 20
+    },
+    {
+      "fromID": 34,
+      "toID": 21
+    },
+    {
+      "fromID": 34,
+      "toID": 22
+    },
+    {
+      "fromID": 35,
+      "toID": 23
+    },
+    {
+      "fromID": 35,
+      "toID": 24
+    },
+    {
+      "fromID": 36,
+      "toID": 25
+    }
+  ]
+}

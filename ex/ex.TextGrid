@@ -1,0 +1,146 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 1.8031519302706158 
+tiers? <exists> 
+size = 3 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "phone" 
+        xmin = 0 
+        xmax = 1.8031519302706158 
+        intervals: size = 22 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.030434770596173166 
+            text = "" 
+        intervals [2]:
+            xmin = 0.030434770596173166 
+            xmax = 0.12043477059616947 
+            text = "v" 
+        intervals [3]:
+            xmin = 0.12043477059616947 
+            xmax = 0.19043477059616976 
+            text = "ˈæ" 
+        intervals [4]:
+            xmin = 0.19043477059616976 
+            xmax = 0.2904347705961712 
+            text = "l" 
+        intervals [5]:
+            xmin = 0.2904347705961712 
+            xmax = 0.3304347705961703 
+            text = "d" 
+        intervals [6]:
+            xmin = 0.3304347705961703 
+            xmax = 0.3804347705961746 
+            text = "d" 
+        intervals [7]:
+            xmin = 0.3804347705961746 
+            xmax = 0.4104347705961757 
+            text = "ˈu" 
+        intervals [8]:
+            xmin = 0.4104347705961757 
+            xmax = 0.5404347705961712 
+            text = "l" 
+        intervals [9]:
+            xmin = 0.5404347705961712 
+            xmax = 0.6404347705961726 
+            text = "ˈɑ" 
+        intervals [10]:
+            xmin = 0.6404347705961726 
+            xmax = 0.7104347705961729 
+            text = "g" 
+        intervals [11]:
+            xmin = 0.7104347705961729 
+            xmax = 0.8104347705961743 
+            text = "s" 
+        intervals [12]:
+            xmin = 0.8104347705961743 
+            xmax = 1.000434770596172 
+            text = "n̩" 
+        intervals [13]:
+            xmin = 1.000434770596172 
+            xmax = 1.0404347705961712 
+            text = "ˈɛ" 
+        intervals [14]:
+            xmin = 1.0404347705961712 
+            xmax = 1.1104347705961715 
+            text = "l" 
+        intervals [15]:
+            xmin = 1.1104347705961715 
+            xmax = 1.1904347705961698 
+            text = "ʌ" 
+        intervals [16]:
+            xmin = 1.1904347705961698 
+            xmax = 1.3204347705961723 
+            text = "t" 
+        intervals [17]:
+            xmin = 1.3204347705961723 
+            xmax = 1.4504347705961749 
+            text = "ˈɒː" 
+        intervals [18]:
+            xmin = 1.4504347705961749 
+            xmax = 1.5204347705961752 
+            text = "s" 
+        intervals [19]:
+            xmin = 1.5204347705961752 
+            xmax = 1.6204347705961695 
+            text = "g" 
+        intervals [20]:
+            xmin = 1.6204347705961695 
+            xmax = 1.720434770596171 
+            text = "ə" 
+        intervals [21]:
+            xmin = 1.720434770596171 
+            xmax = 1.7704347705961752 
+            text = "n" 
+        intervals [22]:
+            xmin = 1.7704347705961752 
+            xmax = 1.8031519302706158 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "word" 
+        xmin = 0 
+        xmax = 1.8031519302706158 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.030434770596173166 
+            text = "" 
+        intervals [2]:
+            xmin = 0.030434770596173166 
+            xmax = 0.3304347705961703 
+            text = "valgte" 
+        intervals [3]:
+            xmin = 0.3304347705961703 
+            xmax = 0.4104347705961757 
+            text = "du" 
+        intervals [4]:
+            xmin = 0.4104347705961757 
+            xmax = 1.000434770596172 
+            text = "laksen" 
+        intervals [5]:
+            xmin = 1.000434770596172 
+            xmax = 1.1904347705961698 
+            text = "eller" 
+        intervals [6]:
+            xmin = 1.1904347705961698 
+            xmax = 1.7704347705961752 
+            text = "torsken" 
+        intervals [7]:
+            xmin = 1.7704347705961752 
+            xmax = 1.8031519302706158 
+            text = "" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "trans" 
+        xmin = 0 
+        xmax = 1.8031519302706158 
+        intervals: size = 1 
+        intervals [1]:
+            xmin = 0 
+            xmax = 1.8031519302706158 
+            text = "valgte du laksen eller torsken?" 

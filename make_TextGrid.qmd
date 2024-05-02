@@ -1,0 +1,135 @@
+# Annotating interactively in R {#sec-make-tg}
+
+```{r}
+#| echo: false
+
+library(praatpicture)
+```
+
+`praatpicture` is not designed to annotate sound files, something that Praat already does very well. But if you want to quickly make some simple annotations of a sound file and would for whatever reason prefer not to go through the process of making these in Praat, saving them in the right format, etc., there are simple functions available in `praatpicture` that allows you to do this interactively without leaving R. This is accomplished with the `make_TextGrid()` function.
+
+## Basic usage
+
+The `make_TextGrid` function takes two obligatory arguments: 
+
+* `sound` the name of a sound file to annotate
+* `tierNames` the names of desired annotation tiers
+
+If we run the following code, two things should happen: for RStudio users, a playable sound file should up in the `Viewer` pane, and a graphics device window should open.
+
+```{r}
+#| eval: false
+
+new_tg <- make_TextGrid('ex/index.wav',
+                        tierNames = c('Mary', 'John', 'bell'))
+```
+
+![](img/makeTG_X11.png){width=70% fig-align='center'}
+
+In the R console, you will see the following text: 
+
+`Navigate to the graphics device window and click in the positions where you want TextGrid boundaries for tier Mary`
+
+You can now click on the image where you want annotation boundaries to be. If you click the `Stop locator` button in the graphics window, you will see dotted lines in the locations where you clicked:
+
+![](img/makeTG_boundaries.png){width=70% fig-align='center'}
+
+In the console, you will be asked the following question:
+
+`Is this an interval tier? [y/n]`
+
+I indeed had an interval tier, so I will type `y` and press enter! If you want a point tier, type `n`.
+
+Next up, I will be asked to input the text for labels. I put in `b`, `a`, and `h`. This prompts the following text in the console:
+
+`Check the resulting annotation and type enter!`
+
+And the graphics device window will now also show the text:
+
+![](img/makeTG_annot.png){width=70% fig-align='center'}
+
+This process will loop through however many annotation tiers you choose. When you're done, the object `new_tg` (or whatever you choose to name it) will be saved in your environment. You can use this object when making a regular `praatpicture` figure, by passing it to the `tg_obj` argument:
+
+```{r}
+#| echo: false
+
+new_tg <- list(
+  Mary = list(name = 'Mary', type = 'interval', 
+              t1 = c(0, 0.648, 0.719, 0.922, 1.067),
+              t2 = c(0.648, 0.719, 0.922, 1.067, 1.44),
+              label = c('', 'b', 'a', 'h', '')),
+  John = list(name = 'John', type = 'interval', 
+              t1 = c(0, 0.123, 0.551), 
+              t2 = c(0.123, 0.551, 1.44),
+              label = c('', 'silence', '')),
+  bell = list(name = 'bell', type = 'point',
+              t = 0.822, label = 'peak')
+)
+```
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index.wav',
+             tg_obj = new_tg)
+```
+
+This now functions as a regular TextGrid!
+
+If you want to make annotations like this but you're working with a larger sound file and don't want to show all of it, you can use the `start` and `end` arguments to show just part o fthe sound file (as when plotting with `praatpicture`). 
+
+## Showing the spectrogram
+
+If you prefer annotating on the basis of the spectrogram, you can do this by setting the `show` argument to `'spectrogram'`:
+
+```{r}
+#| eval: false
+
+new_tg <- make_TextGrid('ex/index.wav',
+                        tierNames = c('Mary', 'John', 'bell'),
+                        show = 'spectrogram')
+```
+
+You will then see an image like this in the graphics window:
+
+![](img/makeTG_spec.png){width=60% fig-align='center'}
+
+It otherwise works the same, but it is a fair bit slower since the spectrogram takes a while to generate.
+
+## Dynamically converting SAMPA to IPA
+
+If you want to use IPA characters in your annotation but don't want to go through the process of finding them, the argument `sampa2ipa` allows you to type in SAMPA transcriptions and convert them on the fly to IPA.
+
+When I was making the first annotation tier of our sound file above and added the labels `b`, `a`, `h`, that was because I was lazy! These are actually a bilabial implosive, a low back vowel, and a voiced glottal fricative. I just didn't want to find those symbols. I can do this easily with `sampa2ipa` set to `TRUE`:
+
+```{r}
+#| eval: false
+
+new_tg_ipa <- make_TextGrid('ex/index.wav',
+                            tierNames = 'IPA',
+                            sampa2ipa = TRUE)
+```
+
+This time, I put boundaries in roughly the same locations as above, and when prompted, I will type `b_<`, `A`, and `h\`, which is the sampa way to annotate these sounds. When prompted to check the resulting annotation, I will now see the following:
+
+![](img/makeTG_sampa2ipa.png){width=75% fig-align='center'}
+
+```{r}
+#| echo: false
+
+new_tg_ipa <- list(
+  IPA = list(name = 'IPA', type = 'interval', 
+              t1 = c(0, 0.648, 0.725, 0.913, 1.067),
+              t2 = c(0.648, 0.725, 0.913, 1.067, 1.44),
+              label = c('', 'ɓ', 'ɑ', 'ɦ', ''))
+)
+```
+
+If I use the resulting object with `praatpicture()`, the annotations will be in IPA:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index.wav',
+             tg_obj = new_tg_ipa)
+```

@@ -1,0 +1,154 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 5.003636363636363 
+tiers? <exists> 
+size = 3 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 5.003636363636363 
+        intervals: size = 9 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.6438987302530808 
+            text = "xxx" 
+        intervals [2]:
+            xmin = 0.6438987302530808 
+            xmax = 1.3427480281541402 
+            text = "b_<ak" 
+        intervals [3]:
+            xmin = 1.3427480281541402 
+            xmax = 1.8098181818181815 
+            text = "xxx" 
+        intervals [4]:
+            xmin = 1.8098181818181815 
+            xmax = 2.40577082902597 
+            text = "b_<ak" 
+        intervals [5]:
+            xmin = 2.40577082902597 
+            xmax = 2.9745653996747383 
+            text = "xxx" 
+        intervals [6]:
+            xmin = 2.9745653996747383 
+            xmax = 3.566076870969827 
+            text = "b_<ak" 
+        intervals [7]:
+            xmin = 3.566076870969827 
+            xmax = 4.0801096346208325 
+            text = "xxx" 
+        intervals [8]:
+            xmin = 4.0801096346208325 
+            xmax = 4.644940612386902 
+            text = "b_<ak" 
+        intervals [9]:
+            xmin = 4.644940612386902 
+            xmax = 5.003636363636363 
+            text = "xxx" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "segments" 
+        xmin = 0 
+        xmax = 5.003636363636363 
+        intervals: size = 17 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.6438987302530808 
+            text = "xxx" 
+        intervals [2]:
+            xmin = 0.6438987302530808 
+            xmax = 0.7843790462009883 
+            text = "b_<" 
+        intervals [3]:
+            xmin = 0.7843790462009883 
+            xmax = 0.9280121144974173 
+            text = "a" 
+        intervals [4]:
+            xmin = 0.9280121144974173 
+            xmax = 1.3427480281541402 
+            text = "k" 
+        intervals [5]:
+            xmin = 1.3427480281541402 
+            xmax = 1.8098181818181815 
+            text = "xxx" 
+        intervals [6]:
+            xmin = 1.8098181818181815 
+            xmax = 1.9399015676563391 
+            text = "b_<" 
+        intervals [7]:
+            xmin = 1.9399015676563391 
+            xmax = 2.072356977398124 
+            text = "a" 
+        intervals [8]:
+            xmin = 2.072356977398124 
+            xmax = 2.40577082902597 
+            text = "k" 
+        intervals [9]:
+            xmin = 2.40577082902597 
+            xmax = 2.9745653996747383 
+            text = "xxx" 
+        intervals [10]:
+            xmin = 2.9745653996747383 
+            xmax = 3.0941739618688477 
+            text = "b_<" 
+        intervals [11]:
+            xmin = 3.0941739618688477 
+            xmax = 3.243327216024533 
+            text = "a" 
+        intervals [12]:
+            xmin = 3.243327216024533 
+            xmax = 3.566076870969827 
+            text = "k" 
+        intervals [13]:
+            xmin = 3.566076870969827 
+            xmax = 4.0801096346208325 
+            text = "xxx" 
+        intervals [14]:
+            xmin = 4.0801096346208325 
+            xmax = 4.164824017330997 
+            text = "b_<" 
+        intervals [15]:
+            xmin = 4.164824017330997 
+            xmax = 4.290519953055826 
+            text = "a" 
+        intervals [16]:
+            xmin = 4.290519953055826 
+            xmax = 4.638904250792455 
+            text = "k" 
+        intervals [17]:
+            xmin = 4.638904250792455 
+            xmax = 5.003636363636363 
+            text = "xxx" 
+    item [3]:
+        class = "TextTier" 
+        name = "release" 
+        xmin = 0 
+        xmax = 5.003636363636363 
+        points: size = 8 
+        points [1]:
+            number = 0.7843790462009883 
+            mark = "b_<" 
+        points [2]:
+            number = 1.1360959185678847 
+            mark = "" 
+        points [3]:
+            number = 1.9399015676563391 
+            mark = "b_<" 
+        points [4]:
+            number = 2.2354865013705463 
+            mark = "" 
+        points [5]:
+            number = 3.0939272640601634 
+            mark = "b_<" 
+        points [6]:
+            number = 3.3998414462930087 
+            mark = "" 
+        points [7]:
+            number = 4.164618696943084 
+            mark = "b_<" 
+        points [8]:
+            number = 4.4483276918820716 
+            mark = "" 

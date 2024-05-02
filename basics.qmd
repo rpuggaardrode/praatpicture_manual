@@ -1,0 +1,153 @@
+# Basic usage
+
+```{r}
+#| echo: false
+
+library(praatpicture)
+```
+
+
+Let's start with a very simple `praatpicture` call:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav')
+```
+
+::: {.callout-tip}
+## Where do the transcriptions come from?
+
+If you call `praatpicture()` with *only* a single argument giving the location of a sound file, as above, the function will look for the `.wav` file you passed, and also a `.TextGrid` file in the same directory with the same base name. You don't *have* to plot annotations, but in that case you will have to tell `praatpicture()` using the `frames` argument as shown below. So if there's no `.TextGrid` file, you will get an error. We will see later in @sec-make-tg that it is also possible to annotate sound files interactively using R. 
+:::
+
+## Showing part of a sound file
+
+Very often you won't want to plot an entire sound file. You can choose exactly which part of a sound file to plot with the `start` and `end` arguments, giving the start and end times of the plotted portion of the file in seconds:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2)
+```
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             end = 0.275)
+```
+
+## What to plot?
+
+By default, `praatpicture()` plots a waveform, a spectrogram, and annotations. This is controlled with the `frames` argument, which takes any combination of the following options:
+
+* `sound`
+* `spectrogram`
+* `TextGrid`
+* `pitch`
+* `formant`
+* `intensity`
+
+The default is to plot the first three, but we could also swap the spectrogram for formants:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             end = 0.275,
+             frames = c('sound', 'formant', 'TextGrid'))
+```
+
+Or we could plot more frames:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             end = 0.275,
+             frames = c('sound', 'spectrogram', 'intensity', 'TextGrid'))
+```
+
+Or we could plot just a spectogram:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             end = 0.275,
+             frames = 'spectrogram')
+```
+
+## Relative sizes of plot components
+
+When using the default `frames`, the waveform is relatively small, the spectrogram is larger, and the annotations are smaller than either. When using more or less `frames`, they are all the same size. This can be controlled with the `proportion` argument, which gives the percentage in size of each component; this should add up to 100%. The default is `c(30,50,20)`, i.e. 30% waveform, 50% spectrogram, and 20% annotation. 
+
+The following reduces the size of the waveform and annotations to 15% each, and increases the size of the spectrogram to 70%:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2,
+             proportion = c(15,70,15))
+```
+
+## Axis appearance
+
+In accordance with Praat default settings, the default is to show only start and end times on the x-axis. This can be controlled with the `start_end_only` argument, which by default is set to `TRUE`:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2,
+             start_end_only = FALSE)
+```
+
+The x-axis starts at 0 by default even though in this case we actually start plotting 1.2 seconds into the sound file. This can be changed with the `tfrom0` argument, which is also `TRUE` by default:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2,
+             start_end_only = FALSE,
+             tfrom0 = FALSE)
+```
+
+You can change the x-axis label using the `time_axisLabel` argument. If you prefer "Time in seconds" to "Time (s)", this is easily done: 
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2,
+             time_axisLabel = 'Time in seconds')
+```
+
+The y-axes, like the x-axes, also show only axis limits by default. This can be changed globally using the `min_max_only` argument, which is `TRUE` by default:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2,
+             start_end_only = FALSE,
+             min_max_only = FALSE)
+```
+
+As with the x-axis label, the y-axis labels can also all be controlled with specific arguments like `pitch_axisLabel` or other `*_axisLabel` arguments. We'll cover this in the following sections.
+
+## Adding a title
+
+The argument `mainTitle` can be used to add a title on top of your plot, like this:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2,
+             mainTitle = 'I am a happy little plot')
+```

@@ -1,0 +1,478 @@
+# Highlighting plot areas
+
+```{r}
+#| echo: false
+
+library(praatpicture)
+```
+
+`praatpicture` offers several ways of highlighting figure components: drawing arrows, rectangles, and straight lines, and adding text. 
+
+## Arrows
+
+Perhaps you've plotted a picture of a short sentence, like this, containing a waveform, speckled pitch contour, spectrogram, and annotations:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word')
+```
+
+You may want to add an arrow to this plot indicating the position of the peak in the pitch contour. This can be achieved with the `draw_arrow` argument. This argument should consist of a vector with the following structure:
+
+- the name of the plot component to add the arrow to (in this case `pitch`); 
+- and arguments for drawing an arrow which are then passed down to the `arrows` function. You can see what these arguments are by typing `help(arrows)`.
+
+The most important arguments to `draw_arrow` are the coordinate space: Where should the arrow start on the x-axis, where should it start on the y-axis, where should it end on the x-axis, and where should it end on the y-axis? 
+
+In our pitch peak case, we may want to start at 0.8 seconds and 100 Hz, and end at 0.65 seconds and 200 Hz. This gives the following result:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_arrow = c('pitch', 0.8, 100, 0.65, 200))
+```
+
+Other arguments to `draw_arrow` include `length`, i.e. the length of the arrow head. It's set to 0.25 inches by default, here we may want to shorten it somewhat:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_arrow = c('pitch', 0.8, 100, 0.65, 200, length = 0.15))
+```
+
+Another important argument is `angle`, determining the angle of the arrow head. The default is set to 30 degrees, which we may want to reduce a little:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_arrow = c('pitch', 0.8, 100, 0.65, 200, length = 0.15,
+                            angle = 20))
+```
+
+The `code` argument determines which way the arrow is pointing; `code = 3` will produce a double-headed arrow. Here's a plot with a double headed arrow showing the gap in pitch tracking the word "laksen":
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_arrow = c('pitch', 0.82, 170, 0.67, 220, length = 0.15,
+                            angle = 20, code = 3))
+```
+
+It can take a bit of fiddling to get the coordinates just right, but at least the plots are produced quickly!
+
+`draw_arrow` also understands other "classical" base R graphics parameters, such as `col` for color, `lty` for line type, and `lwd` for line width. This would be how to plot a thicker, dotted blue line covering the length of the spectrogram:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_arrow = c('spectrogram', 0, 2500, 1.8, 2500, code = 3,
+                            col = 'blue', lwd = 3, lty = 'dotted'))
+```
+
+You can add as many arrows as you want to a plot. If you want to add multiple arrows, you just have to pass a list containing multiple arrows with their own separate arguments to `draw_arrow`. In this plot, we've overlaid color coded formants on the spectrogram, and we want to have arrows of matching colors pointing to the formant offsets in the first syllable in "laksen", in addition to our 'pitch peak' arrow from above:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             formant_plotOnSpec = TRUE,
+             formant_maxN = 3,
+             formant_dynamicRange = 13,
+             formant_color = c('red', 'blue', 'orange'),
+             tg_tiers = 'word',
+             draw_arrow = list(
+               c('pitch', 0.8, 100, 0.65, 200, length = 0.15, angle = 20),
+               c('spectrogram', 0.8, 750, 0.65, 750, length = 0.15, 
+                 angle = 20, col = 'red'),
+               c('spectrogram', 0.8, 1550, 0.65, 1550, length = 0.15, 
+                 angle = 20, col = 'blue'),
+               c('spectrogram', 0.8, 2200, 0.65, 2200, length = 0.15, 
+                 angle = 20, col = 'orange')))
+```
+
+## Rectangles
+
+You can draw rectangles on plot components using the `draw_rectangle` argument. The argument structure is similar to `draw_arrow`:
+
+- the name of the plot component to add the rectangle to; 
+- and arguments for drawing a rectangle which are then passed down to the `rect` function. You can see what these arguments are by typing `help(rect)`.
+
+The most important arguments to `draw_rectangle` are the coordinate space: What is the leftmost point on the x-axis, what is the bottom point on the y-axis, what is the rightmost point on the x-axis, and what is the top part on the y-axis? Arguments are presented in this order. 
+
+Using the same sound snippet we've seen above, perhaps we want to add a rectangle around the pitch contour of the second syllable of the word *laksen*. In this case, we want the beginning of the rectangle at 0.8 seconds, the lowest point at 85 Hz, the end at 0.98 seconds, and the highest point at 200 Hz, like so:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_rectangle = c('pitch', 0.8, 85, 0.98, 200))
+```
+
+Other arguments which can be passed to `draw_rectangle` include `col` which determines the fill color. If we want to "hide" this part of the pitch contour, we could draw it with white fill:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_rectangle = c('pitch', 0.8, 85, 0.98, 200, col = 'white'))
+```
+
+Changing the line color is controlled with the argument `border`. Here we see it in blue:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_rectangle = c('pitch', 0.8, 85, 0.98, 200, 
+                                border = 'blue'))
+```
+
+The line type is controlled with the `lty` argument. Here we see a rectangle with dashed lines:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_rectangle = c('pitch', 0.8, 85, 0.98, 200, lty = 'dashed'))
+```
+
+And line width is controlled with the `lwd` argument, here a version with thicker lines:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_rectangle = c('pitch', 0.8, 85, 0.98, 200, lwd = 3))
+```
+
+As is the case with arrows, you can add as many rectangles as you want to a plot. If you want to add multiple rectangles, you just have to pass a list containing multiple rectangles with their own separate arguments to `draw_rectangle`. Here, we draw rectangles with white fill around both the wave and the pitch track in the second syllable of the word *laksen*, and we draw slightly thicker rectangles with red and blue outlines respectively around the first and two formants in the spectrogram of the word *valgte*:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_rectangle = list(
+               c('pitch', 0.8, 85, 0.98, 200, col = 'white'),
+               c('sound', 0.8, -0.15, 0.98, 0.15, col = 'white'),
+               c('spectrogram', 0.1, 200, 0.25, 800, border = 'red', lwd = 2),
+               c('spectrogram', 0.1, 1300, 0.25, 1900, border = 'blue', 
+                 lwd = 2)))
+```
+
+There are a few other options that can be passed to `draw_rectangle` which aren't covered here; see `help(rect)` if you're interested.
+
+## Straight lines {#sec-lines}
+
+In addition to arrows and rectangles, the argument `draw_lines` allows you to add one or more straight lines to a plot. The structure of `draw_lines` arguments is a little different from `draw_rectangle` and `draw_arrow`, but mostly in the sense that it has to be a list instead of a vector (i.e. `list()` and not `c()`). The first element of the list should be the plot component to draw on, and other elements are arguments to be passed to the `abline()` function. See `help(abline)` for more information about this.
+
+In the figure that we've seen previously, we could add a horizontal line at 2,500 Hz in the spectrogram by passing `h = 2500`, like so:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_lines = list('spectrogram', h = 2500))
+```
+
+We could draw a vertical line 0.5 seconds in by passing `v = 1.6`:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_lines = list('spectrogram', v = 1.6))
+```
+
+You can also in theory add a regression line by specifying an intercept `a` and slope `b`. Here with an intercept of 250 Hz and 2,500 Hz:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_lines = list('spectrogram', a = 250, b = 2500))
+```
+
+As with lines and rectangles, we can control color with the `col` argument, line type with the `lty` argument, and line width with the `lwd` argument. Here I repeat the previous plot with a thick, red dashed line:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_lines = list('spectrogram', a = 250, b = 2500,
+                               col = 'red', lty = 'dashed', lwd = 3))
+```
+
+If you've ever plotted formants on their own using `praatpicture`, you will have seen the `draw_lines` argument in use before [see @sec-formant-lines]:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'formant', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word')
+```
+
+Formant plots show horizontal dotted lines at multiples of 1,000 Hz. This is because the default value for `draw_lines` is `list('formant', h = seq(0, 10000, by = 1000), lty = 'dotted')`. Let's unpack this. The `h` argument indicates that the lines should be horizontal, and instead of passing a single argument to his we pass a vector made with the `seq()` function. `seq(0, 10000, by = 1000)` returns the following vector:
+
+```{r}
+seq(0, 10000, by = 1000)
+```
+
+In the same manner, we could add blue dashed lines at multiples of 500 Hz to our spectrogram:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_lines = list('spectrogram',
+                               h = seq(0, 5000, by = 500),
+                               col = 'blue', lty = 'dashed'))
+```
+
+If you don't plot a TextGrid, or wish to add vertical lines to just one plot component, this is also the way to do it. Here we add straight lines between each of the syllables on the pitch contour:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram'),
+             proportion = c(20,30,50),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_lines = list('pitch', 
+                               v = c(0.35, 0.75, 1, 1.25, 1.55)))
+```
+
+If we want to add more sets of lines with different parameters, we can also do this, by passing a list consisting of multiple lists. Here we combine our two last plots: 
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram'),
+             proportion = c(20,30,50),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_lines = list(
+               list('pitch', v = c(0.35, 0.75, 1, 1.25, 1.55)),
+               list('spectrogram', h = seq(0, 5000, by = 500),
+                    col = 'blue', lty = 'dashed')))
+```
+
+## Text
+
+You may want to add some text to a plot apart from the annotations found in a TextGrid. You can do this with the `annotate` argument. This argument should consist of a vector with the following structure:
+
+- the name of the plot component to annotate; 
+- and arguments for annotating which are then passed down to the `text` function. You can see what these arguments are by typing `help(text)`.
+
+The most important arguments to `annotate` are the the coordinate space and the text to include. Where should the text be placed on the x-axis and where should it be placed on the y-axis? The coordinate space is controlled with the `x` and `y` arguments, and the text is controlled with the `labels` argument.
+
+Above, we made a plot with an arrow pointing towards the peak on the pitch contour. We may want to add a label to this plot saying "peak". This can be done like so:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_arrow = c('pitch', 0.8, 100, 0.65, 200, length = 0.15),
+             annotate = c('pitch', 0.8, 250, labels = 'pitch peak'))
+```
+
+The color of the text labels can be controlled with the `col` argument. Here is the same label in red:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_arrow = c('pitch', 0.8, 100, 0.65, 200, length = 0.15),
+             annotate = c('pitch', 0.8, 250, labels = 'pitch peak',
+                          col = 'red'))
+```
+
+The `font` argument can be used to control the font type, with `2` corresponding to bold, `3` corresponding to italics, and `4` corresponding to bold italics. Here's the same plot as above using a bold-face font:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             draw_arrow = c('pitch', 0.8, 100, 0.65, 200, length = 0.15),
+             annotate = c('pitch', 0.8, 250, labels = 'pitch peak',
+                          col = 'red', font = 2))
+```
+
+The `cex` argument can be used to control the font size of these annotations. Here's a very large label on the spectrogram:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             annotate = c('spectrogram', 0.8, 2500, labels = 'HUGE',
+                          col = 'red', font = 2, cex = 10))
+```
+
+::: {.callout-warning}
+Changing the font size and type of this type of annotation is only possible if you have the latest development version of `praatpicture` installed.
+:::
+
+## Highlighting multichannel audio data
+
+If you have data with multiple channels and you want to highlight just one of those channels, instead of writing `sound` as the first part of the highlighting argument, you can write the number of the channel instead. Here, we add an arrow to the third signal and write some text on the fourth signal:
+
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/multichannel.wav',
+             start = 0.6, end = 2.4,
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             draw_arrow = c(3, 0.05, 0.22, 0.2, 0.22, col = 'red',
+                            length = 0.15, angle = 20),
+             annotate = c(4, 0.22, 0.8, 'VOICING', font = 2))
+```
+

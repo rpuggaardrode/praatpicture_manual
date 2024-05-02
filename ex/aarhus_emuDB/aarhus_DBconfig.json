@@ -1,0 +1,119 @@
+{
+  "name": "aarhus",
+  "UUID": "0c1c70f0-a624-4bed-bb66-77f508b48924",
+  "mediafileExtension": "wav",
+  "ssffTrackDefinitions": [
+    {
+      "name": "rf0",
+      "columnName": "rf0",
+      "fileExtension": "rf0"
+    },
+    {
+      "name": "f0",
+      "columnName": "f0",
+      "fileExtension": "f0"
+    }
+  ],
+  "levelDefinitions": [
+    {
+      "name": "phone",
+      "type": "SEGMENT",
+      "attributeDefinitions": [
+        {
+          "name": "phone",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "word",
+      "type": "ITEM",
+      "attributeDefinitions": [
+        {
+          "name": "word",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "trans",
+      "type": "SEGMENT",
+      "attributeDefinitions": [
+        {
+          "name": "trans",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "word-autobuildBackup",
+      "type": "SEGMENT",
+      "attributeDefinitions": [
+        {
+          "name": "word-autobuildBackup",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "vot",
+      "type": "SEGMENT",
+      "attributeDefinitions": [
+        {
+          "name": "vot",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "landmarks",
+      "type": "EVENT",
+      "attributeDefinitions": [
+        {
+          "name": "landmarks",
+          "type": "STRING"
+        }
+      ]
+    }
+  ],
+  "linkDefinitions": [
+    {
+      "type": "ONE_TO_MANY",
+      "superlevelName": "word",
+      "sublevelName": "phone"
+    }
+  ],
+  "EMUwebAppConfig": {
+    "perspectives": [
+      {
+        "name": "default",
+        "signalCanvases": {
+          "order": [
+            "OSCI",
+            "SPEC"
+          ],
+          "assign": [
+            {
+              "signalCanvasName": "SPEC",
+              "ssffTrackName": "rf0"
+            }
+          ],
+          "contourLims": []
+        },
+        "levelCanvases": {
+          "order": [
+            "phone",
+            "landmarks"
+          ]
+        },
+        "twoDimCanvases": {
+          "order": []
+        }
+      }
+    ],
+    "activeButtons": {
+      "saveBundle": true,
+      "showHierarchy": true
+    }
+  }
+}

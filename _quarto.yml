@@ -1,0 +1,37 @@
+project:
+  type: book
+
+book:
+  title: "Make Praat Picture-style plots of acoustic data in R"
+  author: 
+    - "Rasmus Puggaard-Rode"
+  date: today
+  chapters:
+    - index.qmd
+    - basics.qmd
+    - waveform.qmd
+    - TextGrid.qmd
+    - spec.qmd
+    - pitch.qmd
+    - formant.qmd
+    - intensity.qmd
+    - highlight.qmd
+    - par.qmd
+    - make_TextGrid.qmd
+    - talking_praatpicture.qmd
+    - animation.qmd
+    - emu.qmd
+
+bibliography: references.bib
+crossref:
+  chapters: true
+
+format:
+  html:
+    theme: sandstone
+    fontsize: large
+    df-print: paged
+    callout-appearance: default
+    linkcolor: teal
+
+

@@ -1,0 +1,122 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 0.7530948760713772 
+tiers? <exists> 
+size = 6 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "phone" 
+        xmin = 0 
+        xmax = 0.7530948760713772 
+        intervals: size = 9 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.03065551866899896 
+            text = "ˈɛ" 
+        intervals [2]:
+            xmin = 0.03065551866899896 
+            xmax = 0.10065551866899924 
+            text = "l" 
+        intervals [3]:
+            xmin = 0.10065551866899924 
+            xmax = 0.18065551866899754 
+            text = "ʌ" 
+        intervals [4]:
+            xmin = 0.18065551866899754 
+            xmax = 0.3106555186690001 
+            text = "t" 
+        intervals [5]:
+            xmin = 0.3106555186690001 
+            xmax = 0.44065551866900265 
+            text = "ˈɒː" 
+        intervals [6]:
+            xmin = 0.44065551866900265 
+            xmax = 0.5106555186690029 
+            text = "s" 
+        intervals [7]:
+            xmin = 0.5106555186690029 
+            xmax = 0.6106555186689973 
+            text = "g" 
+        intervals [8]:
+            xmin = 0.6106555186689973 
+            xmax = 0.7106555186689987 
+            text = "ə" 
+        intervals [9]:
+            xmin = 0.7106555186689987 
+            xmax = 0.7530948760713772 
+            text = "n" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "word" 
+        xmin = 0 
+        xmax = 0.7530948760713772 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.18065551866899754 
+            text = "eller" 
+        intervals [2]:
+            xmin = 0.18065551866899754 
+            xmax = 0.7530948760713772 
+            text = "torsken" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "ort" 
+        xmin = 0 
+        xmax = 0.7530948760713772 
+        intervals: size = 1 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.7530948760713772 
+            text = "eller torsken?" 
+    item [4]:
+        class = "IntervalTier" 
+        name = "gloss" 
+        xmin = 0 
+        xmax = 0.7530948760713772 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.18065551866899754 
+            text = "or" 
+        intervals [2]:
+            xmin = 0.18065551866899754 
+            xmax = 0.7530948760713772 
+            text = "trout.\s{DEF}" 
+    item [5]:
+        class = "IntervalTier" 
+        name = "trans" 
+        xmin = 0 
+        xmax = 0.7530948760713772 
+        intervals: size = 1 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.7530948760713772 
+            text = "%%or the trout%" 
+    item [6]:
+        class = "TextTier" 
+        name = "vot" 
+        xmin = 0 
+        xmax = 0.7530948760713772 
+        points: size = 6 
+        points [1]:
+            number = 0.15300771120136633 
+            mark = "clo" 
+        points [2]:
+            number = 0.2200370907179171 
+            mark = "rel" 
+        points [3]:
+            number = 0.28966955293413976 
+            mark = "vo" 
+        points [4]:
+            number = 0.5148362064557569 
+            mark = "clo" 
+        points [5]:
+            number = 0.6059441009442725 
+            mark = "rel" 
+        points [6]:
+            number = 0.6248164505168937 
+            mark = "vo" 

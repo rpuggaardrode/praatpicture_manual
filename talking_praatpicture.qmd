@@ -1,0 +1,86 @@
+# Embedding audio
+
+It's very nice when presentations about phonetics have audio in them! It can take a fair amount of fiddling to extract audio files, get them insert into slide decks, etc. The function `talking_praatpicture()` aims to make this process much easier, by creating single-frame video files including a `praatpicture()`-style image and accompanying audio.
+
+## Basic usage
+
+`talking_praatpicture()` works essentially just like `praatpicture()`, and takes all the same arguments (plus a few more). As with `praatpicture()`, you can use it with just a single argument:
+
+```{r}
+#| eval: false
+
+talking_praatpicture('ex/ex.wav')
+```
+
+If you're using RStudio, you should now see this in the `Viewer` pane:
+
+![](img/talkingPP_basic.mp4){width=80% fig-align='center'}
+
+If you want to save the video instead of showing it in RStudio, you should set the `useViewer` argument to `FALSE` and set the `outputFile` argument to the file name and location you want. By default, it will be saved as `praatvid.mp4` in your working directory.
+
+```{r}
+#| eval: false
+
+talking_praatpicture('ex/ex.wav',
+                     useViewer = FALSE)
+```
+
+## What to show, what to hear
+
+As in `praatpicture()`, you can determine exactly which parts of the file to show with the `start` and `end` arguments. Here we include just the second and third words:
+
+```{r}
+#| eval: false
+
+talking_praatpicture('ex/ex.wav',
+                     start = 0.34, end = 0.97,
+                     tg_tiers = c('phone', 'word'))
+```
+
+![](img/talkingPP_shorter.mp4){width=80% fig-align='center'}
+
+By default, what you see is also what you hear, i.e. the sound file is also cropped. This may not be what you want; if showing just a short sound snippet, you want to include a little more audio. This can be controlled separately with the `audio_start` and `audio_end` arguments. Here we limit what is shown, but include the entire sound file:
+
+```{r}
+#| eval: false
+
+talking_praatpicture('ex/ex.wav',
+                     start = 0.34, end = 0.97,
+                     audio_start = 0, audio_end = 1.8,
+                     tg_tiers = c('phone', 'word'))
+```
+
+![](img/talkingPP_moreaudio.mp4){width=80% fig-align='center'}
+
+## Image quality, dimensions, and font size {#sec-video-qual}
+
+The image quality and dimensions of a `talking_praatpicture()` is controlled with the `width` and `height` arguments, giving pixel numbers. The default is `1080` and `720`, equivalent to a 720p video. It may suit a presentation better with different dimensions. Here is an example that swaps those dimensions:
+
+```{r}
+#| eval: false
+
+talking_praatpicture('ex/ex.wav',
+                     start = 0.34, end = 0.97,
+                     audio_start = 0, audio_end = 1.8,
+                     tg_tiers = c('phone', 'word'),
+                     width = 720, height = 1080)
+```
+
+![](img/talkingPP_nowide.mp4){width=50% fig-align='center'}
+
+You can easily use these arguments to get higher image quality. For example, we could set it to be 1920x1080 (i.e. full HD, or 1080p). If you do this, be aware that font size is related to pixel number, so you'll also want to increase the font size. This is controlled with the `pointsize` argument, which is set to `25` by default.
+
+Here is a pristine quality, more wide-screen example:
+
+```{r}
+#| eval: false
+
+talking_praatpicture('ex/ex.wav',
+                     start = 0.34, end = 0.97,
+                     audio_start = 0, audio_end = 1.8,
+                     tg_tiers = c('phone', 'word'),
+                     width = 1920, height = 1080,
+                     pointsize = 40)
+```
+
+![](img/talkingPP_pristine.mp4){fig-align='center'}

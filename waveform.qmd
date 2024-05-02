@@ -1,0 +1,129 @@
+# The waveform {#sec-wave}
+
+```{r}
+#| echo: false
+
+library(praatpicture)
+```
+
+
+## Managing channels
+
+`praatpicture()` has the option of plotting multiple channels. By default, all channels are plotted. If you have a stereo sound file, it will look like this:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index_stereo.wav', 
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30))
+```
+
+You may not want this; if you prefer plotting just a single channels, you can controls this with the `wave_channels` argument. For plotting just the seconds channel:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index_stereo.wav', 
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_channels = 2)
+```
+
+As indicated above, it is also possible plot audio with more than two channels, like in this case, where one channel captures audio, and other channels capture various articulatory signals:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/multichannel.wav', 
+             start = 0.6, end = 2.4,
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30))
+```
+
+The argument `wave_channels` can be used to both extract and reorder channels. Here we omit the second channel, and swap the order of the third and fourth channels:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/multichannel.wav', 
+             start = 0.6, end = 2.4,
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_channels = c(1,4,3))
+```
+
+## Labelling channels
+
+The argument `wave_channelNames` can be used to add labels next to the y-axis with channel names. It is set to `FALSE` by default. If we plot stereo data with `wave_channelNames` set to `TRUE`, it'll by default print the labels "left" and "right" next to the channels: 
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index_stereo.wav', 
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_channelNames = TRUE)
+```
+
+Instead of passing a logical argument like `TRUE`, we can also pass a vector of strings and thus control the channel labels: 
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index_stereo.wav', 
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_channelNames = c('above', 'below'))
+```
+
+This is especially useful in cases like our multichannel data above, where we can then label the sources of the signals:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/multichannel.wav', 
+             start = 0.6, end = 2.4,
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_channelNames = c('audio', 'airflow', 'Pio', 'EGG'))
+```
+
+You can of course also label just a single channel:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index.wav', 
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_channelNames = 'wave')
+```
+
+## Coloring options
+
+The argument `wave_color` allows users to control the color of the waveform. By default it is set to `black`; when plotting waveforms along with spectrogram, it is often the spectrogram in focus, so it can make a lot of sense to give the waveform a lighter grey color like so:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index.wav', 
+             wave_color='grey')
+```
+
+When multichannel data are plotted, it is also possible to assign different colors to different channels, by passing a vector instead of a single string to `wave_color`. 
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/multichannel.wav', 
+             start = 0.6, end = 2.4,
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_channelNames = c('audio', 'airflow', 'Pio', 'EGG'),
+             wave_color=c('red', 'black', 'orange', 'blue'))
+```
+
+::: {.callout-warning}
+The option of assigning different colors to different channels is a recent addition, and it is not yet possible in the version of `praatpicture` available on CRAN. You have to download the development version if you would like to use this.
+:::
