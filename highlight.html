@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Make Praat Picture-style plots of acoustic data in R - 8&nbsp; Highlighting plot areas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./par.html" rel="next">
+<link href="./intensity.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./highlight.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Make Praat Picture-style plots of acoustic data in R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic usage</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./waveform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./TextGrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pitch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./formant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intensity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./highlight.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./par.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./animation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./emu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#arrows" id="toc-arrows" class="nav-link active" data-scroll-target="#arrows"><span class="header-section-number">8.1</span> Arrows</a></li>
+  <li><a href="#rectangles" id="toc-rectangles" class="nav-link" data-scroll-target="#rectangles"><span class="header-section-number">8.2</span> Rectangles</a></li>
+  <li><a href="#sec-lines" id="toc-sec-lines" class="nav-link" data-scroll-target="#sec-lines"><span class="header-section-number">8.3</span> Straight lines</a></li>
+  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text"><span class="header-section-number">8.4</span> Text</a></li>
+  <li><a href="#highlighting-multichannel-audio-data" id="toc-highlighting-multichannel-audio-data" class="nav-link" data-scroll-target="#highlighting-multichannel-audio-data"><span class="header-section-number">8.5</span> Highlighting multichannel audio data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><code>praatpicture</code> offers several ways of highlighting figure components: drawing arrows, rectangles, and straight lines, and adding text.</p>
+<section id="arrows" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="arrows"><span class="header-section-number">8.1</span> Arrows</h2>
+<p>Perhaps you’ve plotted a picture of a short sentence, like this, containing a waveform, speckled pitch contour, spectrogram, and annotations:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You may want to add an arrow to this plot indicating the position of the peak in the pitch contour. This can be achieved with the <code>draw_arrow</code> argument. This argument should consist of a vector with the following structure:</p>
+<ul>
+<li>the name of the plot component to add the arrow to (in this case <code>pitch</code>);</li>
+<li>and arguments for drawing an arrow which are then passed down to the <code>arrows</code> function. You can see what these arguments are by typing <code>help(arrows)</code>.</li>
+</ul>
+<p>The most important arguments to <code>draw_arrow</code> are the coordinate space: Where should the arrow start on the x-axis, where should it start on the y-axis, where should it end on the x-axis, and where should it end on the y-axis?</p>
+<p>In our pitch peak case, we may want to start at 0.8 seconds and 100 Hz, and end at 0.65 seconds and 200 Hz. This gives the following result:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">100</span>, <span class="fl">0.65</span>, <span class="dv">200</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Other arguments to <code>draw_arrow</code> include <code>length</code>, i.e.&nbsp;the length of the arrow head. It’s set to 0.25 inches by default, here we may want to shorten it somewhat:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">100</span>, <span class="fl">0.65</span>, <span class="dv">200</span>, <span class="at">length =</span> <span class="fl">0.15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Another important argument is <code>angle</code>, determining the angle of the arrow head. The default is set to 30 degrees, which we may want to reduce a little:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">100</span>, <span class="fl">0.65</span>, <span class="dv">200</span>, <span class="at">length =</span> <span class="fl">0.15</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                            <span class="at">angle =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>code</code> argument determines which way the arrow is pointing; <code>code = 3</code> will produce a double-headed arrow. Here’s a plot with a double headed arrow showing the gap in pitch tracking the word “laksen”:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.82</span>, <span class="dv">170</span>, <span class="fl">0.67</span>, <span class="dv">220</span>, <span class="at">length =</span> <span class="fl">0.15</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                            <span class="at">angle =</span> <span class="dv">20</span>, <span class="at">code =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It can take a bit of fiddling to get the coordinates just right, but at least the plots are produced quickly!</p>
+<p><code>draw_arrow</code> also understands other “classical” base R graphics parameters, such as <code>col</code> for color, <code>lty</code> for line type, and <code>lwd</code> for line width. This would be how to plot a thicker, dotted blue line covering the length of the spectrogram:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">c</span>(<span class="st">'spectrogram'</span>, <span class="dv">0</span>, <span class="dv">2500</span>, <span class="fl">1.8</span>, <span class="dv">2500</span>, <span class="at">code =</span> <span class="dv">3</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                            <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">lty =</span> <span class="st">'dotted'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can add as many arrows as you want to a plot. If you want to add multiple arrows, you just have to pass a list containing multiple arrows with their own separate arguments to <code>draw_arrow</code>. In this plot, we’ve overlaid color coded formants on the spectrogram, and we want to have arrows of matching colors pointing to the formant offsets in the first syllable in “laksen”, in addition to our ‘pitch peak’ arrow from above:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">formant_plotOnSpec =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">formant_maxN =</span> <span class="dv">3</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">formant_dynamicRange =</span> <span class="dv">13</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">formant_color =</span> <span class="fu">c</span>(<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'orange'</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">list</span>(</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>               <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">100</span>, <span class="fl">0.65</span>, <span class="dv">200</span>, <span class="at">length =</span> <span class="fl">0.15</span>, <span class="at">angle =</span> <span class="dv">20</span>),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>               <span class="fu">c</span>(<span class="st">'spectrogram'</span>, <span class="fl">0.8</span>, <span class="dv">750</span>, <span class="fl">0.65</span>, <span class="dv">750</span>, <span class="at">length =</span> <span class="fl">0.15</span>, </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">angle =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">'red'</span>),</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>               <span class="fu">c</span>(<span class="st">'spectrogram'</span>, <span class="fl">0.8</span>, <span class="dv">1550</span>, <span class="fl">0.65</span>, <span class="dv">1550</span>, <span class="at">length =</span> <span class="fl">0.15</span>, </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">angle =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">'blue'</span>),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>               <span class="fu">c</span>(<span class="st">'spectrogram'</span>, <span class="fl">0.8</span>, <span class="dv">2200</span>, <span class="fl">0.65</span>, <span class="dv">2200</span>, <span class="at">length =</span> <span class="fl">0.15</span>, </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                 <span class="at">angle =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">'orange'</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="rectangles" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="rectangles"><span class="header-section-number">8.2</span> Rectangles</h2>
+<p>You can draw rectangles on plot components using the <code>draw_rectangle</code> argument. The argument structure is similar to <code>draw_arrow</code>:</p>
+<ul>
+<li>the name of the plot component to add the rectangle to;</li>
+<li>and arguments for drawing a rectangle which are then passed down to the <code>rect</code> function. You can see what these arguments are by typing <code>help(rect)</code>.</li>
+</ul>
+<p>The most important arguments to <code>draw_rectangle</code> are the coordinate space: What is the leftmost point on the x-axis, what is the bottom point on the y-axis, what is the rightmost point on the x-axis, and what is the top part on the y-axis? Arguments are presented in this order.</p>
+<p>Using the same sound snippet we’ve seen above, perhaps we want to add a rectangle around the pitch contour of the second syllable of the word <em>laksen</em>. In this case, we want the beginning of the rectangle at 0.8 seconds, the lowest point at 85 Hz, the end at 0.98 seconds, and the highest point at 200 Hz, like so:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_rectangle =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">85</span>, <span class="fl">0.98</span>, <span class="dv">200</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Other arguments which can be passed to <code>draw_rectangle</code> include <code>col</code> which determines the fill color. If we want to “hide” this part of the pitch contour, we could draw it with white fill:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_rectangle =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">85</span>, <span class="fl">0.98</span>, <span class="dv">200</span>, <span class="at">col =</span> <span class="st">'white'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Changing the line color is controlled with the argument <code>border</code>. Here we see it in blue:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_rectangle =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">85</span>, <span class="fl">0.98</span>, <span class="dv">200</span>, </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                                <span class="at">border =</span> <span class="st">'blue'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The line type is controlled with the <code>lty</code> argument. Here we see a rectangle with dashed lines:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_rectangle =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">85</span>, <span class="fl">0.98</span>, <span class="dv">200</span>, <span class="at">lty =</span> <span class="st">'dashed'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And line width is controlled with the <code>lwd</code> argument, here a version with thicker lines:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_rectangle =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">85</span>, <span class="fl">0.98</span>, <span class="dv">200</span>, <span class="at">lwd =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As is the case with arrows, you can add as many rectangles as you want to a plot. If you want to add multiple rectangles, you just have to pass a list containing multiple rectangles with their own separate arguments to <code>draw_rectangle</code>. Here, we draw rectangles with white fill around both the wave and the pitch track in the second syllable of the word <em>laksen</em>, and we draw slightly thicker rectangles with red and blue outlines respectively around the first and two formants in the spectrogram of the word <em>valgte</em>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_rectangle =</span> <span class="fu">list</span>(</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>               <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">85</span>, <span class="fl">0.98</span>, <span class="dv">200</span>, <span class="at">col =</span> <span class="st">'white'</span>),</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>               <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="fl">0.8</span>, <span class="sc">-</span><span class="fl">0.15</span>, <span class="fl">0.98</span>, <span class="fl">0.15</span>, <span class="at">col =</span> <span class="st">'white'</span>),</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>               <span class="fu">c</span>(<span class="st">'spectrogram'</span>, <span class="fl">0.1</span>, <span class="dv">200</span>, <span class="fl">0.25</span>, <span class="dv">800</span>, <span class="at">border =</span> <span class="st">'red'</span>, <span class="at">lwd =</span> <span class="dv">2</span>),</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>               <span class="fu">c</span>(<span class="st">'spectrogram'</span>, <span class="fl">0.1</span>, <span class="dv">1300</span>, <span class="fl">0.25</span>, <span class="dv">1900</span>, <span class="at">border =</span> <span class="st">'blue'</span>, </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                 <span class="at">lwd =</span> <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There are a few other options that can be passed to <code>draw_rectangle</code> which aren’t covered here; see <code>help(rect)</code> if you’re interested.</p>
+</section>
+<section id="sec-lines" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="sec-lines"><span class="header-section-number">8.3</span> Straight lines</h2>
+<p>In addition to arrows and rectangles, the argument <code>draw_lines</code> allows you to add one or more straight lines to a plot. The structure of <code>draw_lines</code> arguments is a little different from <code>draw_rectangle</code> and <code>draw_arrow</code>, but mostly in the sense that it has to be a list instead of a vector (i.e.&nbsp;<code>list()</code> and not <code>c()</code>). The first element of the list should be the plot component to draw on, and other elements are arguments to be passed to the <code>abline()</code> function. See <code>help(abline)</code> for more information about this.</p>
+<p>In the figure that we’ve seen previously, we could add a horizontal line at 2,500 Hz in the spectrogram by passing <code>h = 2500</code>, like so:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_lines =</span> <span class="fu">list</span>(<span class="st">'spectrogram'</span>, <span class="at">h =</span> <span class="dv">2500</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We could draw a vertical line 0.5 seconds in by passing <code>v = 1.6</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_lines =</span> <span class="fu">list</span>(<span class="st">'spectrogram'</span>, <span class="at">v =</span> <span class="fl">1.6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can also in theory add a regression line by specifying an intercept <code>a</code> and slope <code>b</code>. Here with an intercept of 250 Hz and 2,500 Hz:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_lines =</span> <span class="fu">list</span>(<span class="st">'spectrogram'</span>, <span class="at">a =</span> <span class="dv">250</span>, <span class="at">b =</span> <span class="dv">2500</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As with lines and rectangles, we can control color with the <code>col</code> argument, line type with the <code>lty</code> argument, and line width with the <code>lwd</code> argument. Here I repeat the previous plot with a thick, red dashed line:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_lines =</span> <span class="fu">list</span>(<span class="st">'spectrogram'</span>, <span class="at">a =</span> <span class="dv">250</span>, <span class="at">b =</span> <span class="dv">2500</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>                               <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">lty =</span> <span class="st">'dashed'</span>, <span class="at">lwd =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you’ve ever plotted formants on their own using <code>praatpicture</code>, you will have seen the <code>draw_lines</code> argument in use before <a href="formant.html#sec-formant-lines">see&nbsp;<span>6.1.6</span></a>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'formant'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Formant plots show horizontal dotted lines at multiples of 1,000 Hz. This is because the default value for <code>draw_lines</code> is <code>list('formant', h = seq(0, 10000, by = 1000), lty = 'dotted')</code>. Let’s unpack this. The <code>h</code> argument indicates that the lines should be horizontal, and instead of passing a single argument to his we pass a vector made with the <code>seq()</code> function. <code>seq(0, 10000, by = 1000)</code> returns the following vector:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10000</span>, <span class="at">by =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]     0  1000  2000  3000  4000  5000  6000  7000  8000  9000 10000</code></pre>
+</div>
+</div>
+<p>In the same manner, we could add blue dashed lines at multiples of 500 Hz to our spectrogram:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_lines =</span> <span class="fu">list</span>(<span class="st">'spectrogram'</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>                               <span class="at">h =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5000</span>, <span class="at">by =</span> <span class="dv">500</span>),</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>                               <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">lty =</span> <span class="st">'dashed'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you don’t plot a TextGrid, or wish to add vertical lines to just one plot component, this is also the way to do it. Here we add straight lines between each of the syllables on the pitch contour:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>),</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">50</span>),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_lines =</span> <span class="fu">list</span>(<span class="st">'pitch'</span>, </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>                               <span class="at">v =</span> <span class="fu">c</span>(<span class="fl">0.35</span>, <span class="fl">0.75</span>, <span class="dv">1</span>, <span class="fl">1.25</span>, <span class="fl">1.55</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If we want to add more sets of lines with different parameters, we can also do this, by passing a list consisting of multiple lists. Here we combine our two last plots:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>),</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">50</span>),</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_lines =</span> <span class="fu">list</span>(</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>               <span class="fu">list</span>(<span class="st">'pitch'</span>, <span class="at">v =</span> <span class="fu">c</span>(<span class="fl">0.35</span>, <span class="fl">0.75</span>, <span class="dv">1</span>, <span class="fl">1.25</span>, <span class="fl">1.55</span>)),</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>               <span class="fu">list</span>(<span class="st">'spectrogram'</span>, <span class="at">h =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5000</span>, <span class="at">by =</span> <span class="dv">500</span>),</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">lty =</span> <span class="st">'dashed'</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="text" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="text"><span class="header-section-number">8.4</span> Text</h2>
+<p>You may want to add some text to a plot apart from the annotations found in a TextGrid. You can do this with the <code>annotate</code> argument. This argument should consist of a vector with the following structure:</p>
+<ul>
+<li>the name of the plot component to annotate;</li>
+<li>and arguments for annotating which are then passed down to the <code>text</code> function. You can see what these arguments are by typing <code>help(text)</code>.</li>
+</ul>
+<p>The most important arguments to <code>annotate</code> are the the coordinate space and the text to include. Where should the text be placed on the x-axis and where should it be placed on the y-axis? The coordinate space is controlled with the <code>x</code> and <code>y</code> arguments, and the text is controlled with the <code>labels</code> argument.</p>
+<p>Above, we made a plot with an arrow pointing towards the peak on the pitch contour. We may want to add a label to this plot saying “peak”. This can be done like so:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">100</span>, <span class="fl">0.65</span>, <span class="dv">200</span>, <span class="at">length =</span> <span class="fl">0.15</span>),</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">annotate =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">250</span>, <span class="at">labels =</span> <span class="st">'pitch peak'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The color of the text labels can be controlled with the <code>col</code> argument. Here is the same label in red:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">100</span>, <span class="fl">0.65</span>, <span class="dv">200</span>, <span class="at">length =</span> <span class="fl">0.15</span>),</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">annotate =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">250</span>, <span class="at">labels =</span> <span class="st">'pitch peak'</span>,</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>                          <span class="at">col =</span> <span class="st">'red'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>font</code> argument can be used to control the font type, with <code>2</code> corresponding to bold, <code>3</code> corresponding to italics, and <code>4</code> corresponding to bold italics. Here’s the same plot as above using a bold-face font:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">100</span>, <span class="fl">0.65</span>, <span class="dv">200</span>, <span class="at">length =</span> <span class="fl">0.15</span>),</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">annotate =</span> <span class="fu">c</span>(<span class="st">'pitch'</span>, <span class="fl">0.8</span>, <span class="dv">250</span>, <span class="at">labels =</span> <span class="st">'pitch peak'</span>,</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>                          <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">font =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>cex</code> argument can be used to control the font size of these annotations. Here’s a very large label on the spectrogram:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">10</span>),</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">annotate =</span> <span class="fu">c</span>(<span class="st">'spectrogram'</span>, <span class="fl">0.8</span>, <span class="dv">2500</span>, <span class="at">labels =</span> <span class="st">'HUGE'</span>,</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">font =</span> <span class="dv">2</span>, <span class="at">cex =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Changing the font size and type of this type of annotation is only possible if you have the latest development version of <code>praatpicture</code> installed.</p>
+</div>
+</div>
+</section>
+<section id="highlighting-multichannel-audio-data" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="highlighting-multichannel-audio-data"><span class="header-section-number">8.5</span> Highlighting multichannel audio data</h2>
+<p>If you have data with multiple channels and you want to highlight just one of those channels, instead of writing <code>sound</code> as the first part of the highlighting argument, you can write the number of the channel instead. Here, we add an arrow to the third signal and write some text on the fourth signal:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/multichannel.wav'</span>,</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">start =</span> <span class="fl">0.6</span>, <span class="at">end =</span> <span class="fl">2.4</span>,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">30</span>),</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">draw_arrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="fl">0.05</span>, <span class="fl">0.22</span>, <span class="fl">0.2</span>, <span class="fl">0.22</span>, <span class="at">col =</span> <span class="st">'red'</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">length =</span> <span class="fl">0.15</span>, <span class="at">angle =</span> <span class="dv">20</span>),</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">annotate =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="fl">0.22</span>, <span class="fl">0.8</span>, <span class="st">'VOICING'</span>, <span class="at">font =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="highlight_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intensity.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intensity</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./par.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
