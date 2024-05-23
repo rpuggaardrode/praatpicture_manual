@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Make Praat Picture-style plots of acoustic data in R - 11&nbsp; Annotating interactively in R</title>
+<title>Make Praat Picture-style plots of acoustic data in R - 2&nbsp; Shiny app</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./talking_praatpicture.html" rel="next">
-<link href="./par.html" rel="prev">
+<link href="./waveform.html" rel="next">
+<link href="./basics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./make_TextGrid.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./shiny.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shiny app</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./shiny.html" class="sidebar-item-text sidebar-link">
+  <a href="./shiny.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shiny app</span></span></a>
   </div>
 </li>
@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link active">
+  <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
@@ -232,22 +232,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="header-section-number">11.1</span> Basic usage</a></li>
-  <li><a href="#showing-the-spectrogram" id="toc-showing-the-spectrogram" class="nav-link" data-scroll-target="#showing-the-spectrogram"><span class="header-section-number">11.2</span> Showing the spectrogram</a></li>
-  <li><a href="#dynamically-converting-sampa-to-ipa" id="toc-dynamically-converting-sampa-to-ipa" class="nav-link" data-scroll-target="#dynamically-converting-sampa-to-ipa"><span class="header-section-number">11.3</span> Dynamically converting SAMPA to IPA</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-make-tg" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shiny app</span></h1>
 </div>
 
 
@@ -262,104 +254,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><code>praatpicture</code> is not designed to annotate sound files, something that Praat already does very well. But if you want to quickly make some simple annotations of a sound file and would for whatever reason prefer not to go through the process of making these in Praat, saving them in the right format, etc., there are simple functions available in <code>praatpicture</code> that allows you to do this interactively without leaving R. This is accomplished with the <code>make_TextGrid()</code> function.</p>
-<section id="basic-usage" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="basic-usage"><span class="header-section-number">11.1</span> Basic usage</h2>
-<p>The <code>make_TextGrid</code> function takes two obligatory arguments:</p>
-<ul>
-<li><code>sound</code> the name of a sound file to annotate</li>
-<li><code>tierNames</code> the names of desired annotation tiers</li>
-</ul>
-<p>If we run the following code, two things should happen: for RStudio users, a playable sound file should up in the <code>Viewer</code> pane, and a graphics device window should open.</p>
+<p>The most flexible way to use the <code>praatpicture</code> library and the best way to integrate plots in your R documents is with the <code>praatpicture()</code> function. But if you just want to make a quick plot and you’d rather not go through the hassle of learning all the argument names, you can use a graphical user interface (a so-called “Shiny app”) instead. This is still in a somewhat experimental stage and is not as full-featured, but should be sufficient for most purposes. Be aware, though, that the Shiny app currently limits file sizes to 5MB, so this only works with short audio files.</p>
+<p>Simply run the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>new_tg <span class="ot">&lt;-</span> <span class="fu">make_TextGrid</span>(<span class="st">'ex/index.wav'</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">tierNames =</span> <span class="fu">c</span>(<span class="st">'Mary'</span>, <span class="st">'John'</span>, <span class="st">'bell'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shiny_praatpicture</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>And the following window should appear:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/makeTG_X11.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="img/shiny_empty.png" class="img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
-<p>In the R console, you will see the following text:</p>
-<p><code>Navigate to the graphics device window and click in the positions where you want TextGrid boundaries for tier Mary</code></p>
-<p>You can now click on the image where you want annotation boundaries to be. If you click the <code>Stop locator</code> button in the graphics window, you will see dotted lines in the locations where you clicked:</p>
+<p>If you upload a sound file, it will be plotted immediately:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/makeTG_boundaries.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="img/shiny_basic.png" class="img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
-<p>In the console, you will be asked the following question:</p>
-<p><code>Is this an interval tier? [y/n]</code></p>
-<p>I indeed had an interval tier, so I will type <code>y</code> and press enter! If you want a point tier, type <code>n</code>.</p>
-<p>Next up, I will be asked to input the text for labels. I put in <code>b</code>, <code>a</code>, and <code>h</code>. This prompts the following text in the console:</p>
-<p><code>Check the resulting annotation and type enter!</code></p>
-<p>And the graphics device window will now also show the text:</p>
+<p>By expanding the menu items on the left, you can access most of the same arguments that you can toggle using the <code>praatpicture()</code> function; they’re all explained in the following chapters.</p>
+<p>For example, if you expand the menu item “<em>General apperance</em>”, you’ll see the option “<em>Which frames should be plotted?</em>”. If you add <em>TextGrid</em>, you’ll be prompted to upload a <code>.TextGrid</code> file:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/makeTG_annot.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="img/shiny_waitingForTG.png" class="img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
-<p>This process will loop through however many annotation tiers you choose. When you’re done, the object <code>new_tg</code> (or whatever you choose to name it) will be saved in your environment. You can use this object when making a regular <code>praatpicture</code> figure, by passing it to the <code>tg_obj</code> argument:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/index.wav'</span>,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_obj =</span> new_tg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+<p>Once you’ve uploaded this, the plot will regenerate automatically:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="make_TextGrid_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="img/shiny_annotated.png" class="img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
-</div>
-</div>
-<p>This now functions as a regular TextGrid!</p>
-<p>If you want to make annotations like this but you’re working with a larger sound file and don’t want to show all of it, you can use the <code>start</code> and <code>end</code> arguments to show just part o fthe sound file (as when plotting with <code>praatpicture</code>).</p>
-</section>
-<section id="showing-the-spectrogram" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="showing-the-spectrogram"><span class="header-section-number">11.2</span> Showing the spectrogram</h2>
-<p>If you prefer annotating on the basis of the spectrogram, you can do this by setting the <code>show</code> argument to <code>'spectrogram'</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>new_tg <span class="ot">&lt;-</span> <span class="fu">make_TextGrid</span>(<span class="st">'ex/index.wav'</span>,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">tierNames =</span> <span class="fu">c</span>(<span class="st">'Mary'</span>, <span class="st">'John'</span>, <span class="st">'bell'</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">show =</span> <span class="st">'spectrogram'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You will then see an image like this in the graphics window:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/makeTG_spec.png" class="img-fluid figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-<p>It otherwise works the same, but it is a fair bit slower since the spectrogram takes a while to generate.</p>
-</section>
-<section id="dynamically-converting-sampa-to-ipa" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="dynamically-converting-sampa-to-ipa"><span class="header-section-number">11.3</span> Dynamically converting SAMPA to IPA</h2>
-<p>If you want to use IPA characters in your annotation but don’t want to go through the process of finding them, the argument <code>sampa2ipa</code> allows you to type in SAMPA transcriptions and convert them on the fly to IPA.</p>
-<p>When I was making the first annotation tier of our sound file above and added the labels <code>b</code>, <code>a</code>, <code>h</code>, that was because I was lazy! These are actually a bilabial implosive, a low back vowel, and a voiced glottal fricative. I just didn’t want to find those symbols. I can do this easily with <code>sampa2ipa</code> set to <code>TRUE</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>new_tg_ipa <span class="ot">&lt;-</span> <span class="fu">make_TextGrid</span>(<span class="st">'ex/index.wav'</span>,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">tierNames =</span> <span class="st">'IPA'</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sampa2ipa =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This time, I put boundaries in roughly the same locations as above, and when prompted, I will type <code>b_&lt;</code>, <code>A</code>, and <code>h\</code>, which is the sampa way to annotate these sounds. When prompted to check the resulting annotation, I will now see the following:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/makeTG_sampa2ipa.png" class="img-fluid figure-img" style="width:75.0%"></p>
-</figure>
-</div>
-<p>If I use the resulting object with <code>praatpicture()</code>, the annotations will be in IPA:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/index.wav'</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_obj =</span> new_tg_ipa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="make_TextGrid_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>Generally, whenever you change one of the parameters, the plot will regenerate automatically. Once you’re done editing your plot, simply click the “<em>Download</em>” button.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -597,13 +524,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./par.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span>
+      <a href="./basics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic usage</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./talking_praatpicture.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./waveform.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The waveform</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Make Praat Picture-style plots of acoustic data in R - 5&nbsp; Pitch</title>
+<title>Make Praat Picture-style plots of acoustic data in R - 6&nbsp; Pitch</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pitch.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitch</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pitch.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitch</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -152,74 +152,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shiny app</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./waveform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pitch.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./formant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intensity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./highlight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./par.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./animation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./emu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
   </div>
 </li>
     </ul>
@@ -232,20 +238,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#appearance" id="toc-appearance" class="nav-link active" data-scroll-target="#appearance"><span class="header-section-number">5.1</span> Appearance</a>
+  <li><a href="#appearance" id="toc-appearance" class="nav-link active" data-scroll-target="#appearance"><span class="header-section-number">6.1</span> Appearance</a>
   <ul class="collapse">
-  <li><a href="#plot-type" id="toc-plot-type" class="nav-link" data-scroll-target="#plot-type"><span class="header-section-number">5.1.1</span> Plot type</a></li>
-  <li><a href="#frequency-range" id="toc-frequency-range" class="nav-link" data-scroll-target="#frequency-range"><span class="header-section-number">5.1.2</span> Frequency range</a></li>
-  <li><a href="#scale" id="toc-scale" class="nav-link" data-scroll-target="#scale"><span class="header-section-number">5.1.3</span> Scale</a></li>
-  <li><a href="#coloring-options" id="toc-coloring-options" class="nav-link" data-scroll-target="#coloring-options"><span class="header-section-number">5.1.4</span> Coloring options</a></li>
-  <li><a href="#axis-label" id="toc-axis-label" class="nav-link" data-scroll-target="#axis-label"><span class="header-section-number">5.1.5</span> Axis label</a></li>
-  <li><a href="#sec-pitch-overlay" id="toc-sec-pitch-overlay" class="nav-link" data-scroll-target="#sec-pitch-overlay"><span class="header-section-number">5.1.6</span> Overlaying on spectrogram</a></li>
+  <li><a href="#plot-type" id="toc-plot-type" class="nav-link" data-scroll-target="#plot-type"><span class="header-section-number">6.1.1</span> Plot type</a></li>
+  <li><a href="#frequency-range" id="toc-frequency-range" class="nav-link" data-scroll-target="#frequency-range"><span class="header-section-number">6.1.2</span> Frequency range</a></li>
+  <li><a href="#scale" id="toc-scale" class="nav-link" data-scroll-target="#scale"><span class="header-section-number">6.1.3</span> Scale</a></li>
+  <li><a href="#coloring-options" id="toc-coloring-options" class="nav-link" data-scroll-target="#coloring-options"><span class="header-section-number">6.1.4</span> Coloring options</a></li>
+  <li><a href="#axis-label" id="toc-axis-label" class="nav-link" data-scroll-target="#axis-label"><span class="header-section-number">6.1.5</span> Axis label</a></li>
+  <li><a href="#sec-pitch-overlay" id="toc-sec-pitch-overlay" class="nav-link" data-scroll-target="#sec-pitch-overlay"><span class="header-section-number">6.1.6</span> Overlaying on spectrogram</a></li>
   </ul></li>
-  <li><a href="#sec-pitch-praat" id="toc-sec-pitch-praat" class="nav-link" data-scroll-target="#sec-pitch-praat"><span class="header-section-number">5.2</span> Calculate using R or Praat?</a></li>
-  <li><a href="#signal-processing" id="toc-signal-processing" class="nav-link" data-scroll-target="#signal-processing"><span class="header-section-number">5.3</span> Signal processing</a>
+  <li><a href="#sec-pitch-praat" id="toc-sec-pitch-praat" class="nav-link" data-scroll-target="#sec-pitch-praat"><span class="header-section-number">6.2</span> Calculate using R or Praat?</a></li>
+  <li><a href="#signal-processing" id="toc-signal-processing" class="nav-link" data-scroll-target="#signal-processing"><span class="header-section-number">6.3</span> Signal processing</a>
   <ul class="collapse">
-  <li><a href="#floor-and-ceiling" id="toc-floor-and-ceiling" class="nav-link" data-scroll-target="#floor-and-ceiling"><span class="header-section-number">5.3.1</span> Floor and ceiling</a></li>
-  <li><a href="#measurement-interval" id="toc-measurement-interval" class="nav-link" data-scroll-target="#measurement-interval"><span class="header-section-number">5.3.2</span> Measurement interval</a></li>
+  <li><a href="#floor-and-ceiling" id="toc-floor-and-ceiling" class="nav-link" data-scroll-target="#floor-and-ceiling"><span class="header-section-number">6.3.1</span> Floor and ceiling</a></li>
+  <li><a href="#measurement-interval" id="toc-measurement-interval" class="nav-link" data-scroll-target="#measurement-interval"><span class="header-section-number">6.3.2</span> Measurement interval</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -255,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitch</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitch</span></h1>
 </div>
 
 
@@ -270,11 +276,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>The pitch tracks plotted by <code>praatpicture</code> by default look similar to those produced by Praat, but users have a lot of options regarding both the general appearance of pitch tracks and the underlying signal processing, or to capitalize on the signal processing provided by Praat (see <a href="#sec-pitch-praat"><span>Section&nbsp;5.2</span></a>). We’ll cover those options here.</p>
-<section id="appearance" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="appearance"><span class="header-section-number">5.1</span> Appearance</h2>
-<section id="plot-type" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="plot-type"><span class="header-section-number">5.1.1</span> Plot type</h3>
+<p>The pitch tracks plotted by <code>praatpicture</code> by default look similar to those produced by Praat, but users have a lot of options regarding both the general appearance of pitch tracks and the underlying signal processing, or to capitalize on the signal processing provided by Praat (see <a href="#sec-pitch-praat"><span>Section&nbsp;6.2</span></a>). We’ll cover those options here.</p>
+<section id="appearance" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="appearance"><span class="header-section-number">6.1</span> Appearance</h2>
+<section id="plot-type" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="plot-type"><span class="header-section-number">6.1.1</span> Plot type</h3>
 <p>When plotting pitch in Praat, pitch tracks are either ‘drawn’ or ‘speckled’. The default is ‘drawn’, i.e.&nbsp;line plots:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -305,8 +311,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="frequency-range" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="frequency-range"><span class="header-section-number">5.1.2</span> Frequency range</h3>
+<section id="frequency-range" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="frequency-range"><span class="header-section-number">6.1.2</span> Frequency range</h3>
 <p>The default frequency range for pitch plots shows between 50–500 Hz. This is rather broad for most purposes. Frequency range can be controlled with the <code>pitch_freqRange</code> argument. Here, a frequency range between 80–250 Hz is probably more suitable:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -323,8 +329,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="scale" class="level3" data-number="5.1.3">
-<h3 data-number="5.1.3" class="anchored" data-anchor-id="scale"><span class="header-section-number">5.1.3</span> Scale</h3>
+<section id="scale" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="scale"><span class="header-section-number">6.1.3</span> Scale</h3>
 <p>By default, pitch tracks are plotted in a raw frequency scale. A range of other options are available for scaling the pitch values. This is controlled with the <code>pitch_scale</code> argument.</p>
 <p><code>log</code> or <code>logarithmic</code> will both produce a plot that is log-scaled on the y-axis.</p>
 <div class="cell" data-layout-align="center">
@@ -436,8 +442,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="coloring-options" class="level3" data-number="5.1.4">
-<h3 data-number="5.1.4" class="anchored" data-anchor-id="coloring-options"><span class="header-section-number">5.1.4</span> Coloring options</h3>
+<section id="coloring-options" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="coloring-options"><span class="header-section-number">6.1.4</span> Coloring options</h3>
 <p>The color of the pitch trace is controlled with the <code>pitch_color</code> argument. Here’s a blue contour:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -453,10 +459,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Some fancier coloring options are available when a pitch track is overlaid on spectrograms; more on that in <a href="#sec-pitch-overlay"><span>Section&nbsp;5.1.6</span></a>.</p>
+<p>Some fancier coloring options are available when a pitch track is overlaid on spectrograms; more on that in <a href="#sec-pitch-overlay"><span>Section&nbsp;6.1.6</span></a>.</p>
 </section>
-<section id="axis-label" class="level3" data-number="5.1.5">
-<h3 data-number="5.1.5" class="anchored" data-anchor-id="axis-label"><span class="header-section-number">5.1.5</span> Axis label</h3>
+<section id="axis-label" class="level3" data-number="6.1.5">
+<h3 data-number="6.1.5" class="anchored" data-anchor-id="axis-label"><span class="header-section-number">6.1.5</span> Axis label</h3>
 <p>As we’ve seen above, the y-axis label for pitch plots is automatically adapted to different frequency scales. Users can also specify their own axis labels, using the <code>pitch_axisLabel</code> argument. For example, we might want to refer to it as <code>f0</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -473,8 +479,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="sec-pitch-overlay" class="level3" data-number="5.1.6">
-<h3 data-number="5.1.6" class="anchored" data-anchor-id="sec-pitch-overlay"><span class="header-section-number">5.1.6</span> Overlaying on spectrogram</h3>
+<section id="sec-pitch-overlay" class="level3" data-number="6.1.6">
+<h3 data-number="6.1.6" class="anchored" data-anchor-id="sec-pitch-overlay"><span class="header-section-number">6.1.6</span> Overlaying on spectrogram</h3>
 <p>Instead of drawing pitch in its own frame, it is also possible to overlay a pitch contour on a spectrogram. In this case, <code>pitch</code> should not be specified as one of the <code>frames</code>; this is instead controlled with the Boolean <code>pitch_plotOnSpec</code> argument.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -549,23 +555,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The option of including a background color for pitch traces when overlaying on a spectrogram is a recent addition to the library, and it is not yet possible in the version of <code>praatpicture</code> available on CRAN. You have to download the development version if you would like to use this.</p>
-</div>
-</div>
 </section>
 </section>
-<section id="sec-pitch-praat" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="sec-pitch-praat"><span class="header-section-number">5.2</span> Calculate using R or Praat?</h2>
+<section id="sec-pitch-praat" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-pitch-praat"><span class="header-section-number">6.2</span> Calculate using R or Praat?</h2>
 <p>Pitch tracks are typically calculated on the fly in R using the <code>ksvF0()</code> function from the <code>wrassp</code> library, which is a convenient way to call functions from the C library <code>libassp</code> in R. <code>ksvF0()</code> implements the pitch detection method described by <a href="https://doi.org/10.1159/000261691" target="_blank">Schäfer-Vincent (1983)</a>.</p>
 <p>There are several reasons why you may wish to use the signal processing tools from Praat instead. For example, Praat has a nice GUI allowing users to hand-edit the pitch contour, and if you’re writing about pitch and using Praat to generate the pitch contours, it could be important to show actual examples of the data you’re analyzing using the exact same parameter settings as you’re using for the analysis. And in all likelihood the pitch detection method used by Praat (described by <a href="https://www.fon.hum.uva.nl/paul/papers/Proceedings_1993.pdf" target="_blank">Boersma 1993</a>) is more accurate than the one implemented in <code>ksvF0()</code>. Luckily, it’s fairly straightforward to plot pitch contours in <code>praatpicture</code> that are calculated in Praat.</p>
 <p>If you open and select a sound file in Praat, you can generate a pitch track by clicking the <code>Analyse periodicity -</code> button and selecting one of the <code>To Pitch...</code> options. Once you have done this, and you’ve potentially edited the pitch track according to your wishes, click the <code>Convert -</code> button and select <code>Down to PitchTier</code>. Select this <code>PitchTier</code> object, click the <code>Save</code> button and select <code>Save as text file...</code>, and save the object using the same base name as your sound file and the <code>.PitchTier</code> extension. If you have done this, <code>praatpicture</code> will automatically plot the values in the <code>.PitchTier</code> file instead of calculating pitch on the fly.</p>
@@ -603,13 +596,13 @@ Warning
 </div>
 <p>Reasonably similar results, but the <code>ksvF0()</code> contour is sometimes a bit more jagged, and it detects a rise that Praat does not find!</p>
 <p>Note that the signal processing options introduced below are only used when calculating pitch on the fly in R. If pitch is plotted from a <code>.PitchTier</code> file, they are ignored – in this case, you need to set your own signal processing parameters in Praat!</p>
-<p>As we will see in <a href="emu.html#sec-ssff"><span>Section&nbsp;13.2</span></a>, any method can in principle be used for calculating the plotted pitch tracks as long as the results are formatted in a particular way.</p>
+<p>As we will see in <a href="emu.html#sec-ssff"><span>Section&nbsp;14.2</span></a>, any method can in principle be used for calculating the plotted pitch tracks as long as the results are formatted in a particular way.</p>
 </section>
-<section id="signal-processing" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="signal-processing"><span class="header-section-number">5.3</span> Signal processing</h2>
+<section id="signal-processing" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="signal-processing"><span class="header-section-number">6.3</span> Signal processing</h2>
 <p>The parameters used to predict pitch do not use <code>ksvF0()</code> defaults, but are rather set to emulate Praat as closely as possible. Some of these can’t be changed (using Gaussian-shaped <code>KAISER2_0</code> windows), but some can! You’ll find that some of the settings which can be toggled in Praat are not necessarily available in <code>praatpicture</code>, either because <code>ksvF0()</code> doesn’t allow you to change them, or because these settings are specific to the pitch tracking algorihtm(s) used in Praat.</p>
-<section id="floor-and-ceiling" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="floor-and-ceiling"><span class="header-section-number">5.3.1</span> Floor and ceiling</h3>
+<section id="floor-and-ceiling" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="floor-and-ceiling"><span class="header-section-number">6.3.1</span> Floor and ceiling</h3>
 <p>The lowest and highest pitch to look for is controlled with the <code>pitch_floor</code> and <code>pitch_ceiling</code> parameters. By default, <code>praatpicture</code> searches between 75–600 Hz, which is in most cases fine for plotting, but is worth limiting if you see octave jumps in the resulting plots.</p>
 <p>Increasing the range to 50–800 Hz does not change much, but provides a slightly smoother contour (probably because the measurement interval depends on these settings; see below).</p>
 <div class="cell" data-layout-align="center">
@@ -644,8 +637,8 @@ Warning
 </div>
 </div>
 </section>
-<section id="measurement-interval" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="measurement-interval"><span class="header-section-number">5.3.2</span> Measurement interval</h3>
+<section id="measurement-interval" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="measurement-interval"><span class="header-section-number">6.3.2</span> Measurement interval</h3>
 <p>The intervals at which to measure pitch is controlled with the <code>pitch_timeStep</code> parameter. The default here is to calculate the measurement interval dynamically based on the <code>pitch_floor</code>, such that it is <span class="math inline">\(\frac{3}{4}\)</span> <code>pitch_floor</code>, which with the default floor of 75 Hz amounts to <code>0.01</code>, i.e.&nbsp;every 10 ms. But users can also specify a number (in ms). Here we take a lot more measures, once per ms:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -920,12 +913,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./spec.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The spectrogram</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The spectrogram</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./formant.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Formants</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Formants</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

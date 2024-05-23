@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Make Praat Picture-style plots of acoustic data in R - 8&nbsp; Highlighting plot areas</title>
+<title>Make Praat Picture-style plots of acoustic data in R - 9&nbsp; Highlighting plot areas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./highlight.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./highlight.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -150,74 +150,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shiny app</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./waveform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pitch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./formant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intensity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./highlight.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./par.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./animation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./emu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
   </div>
 </li>
     </ul>
@@ -230,11 +236,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#arrows" id="toc-arrows" class="nav-link active" data-scroll-target="#arrows"><span class="header-section-number">8.1</span> Arrows</a></li>
-  <li><a href="#rectangles" id="toc-rectangles" class="nav-link" data-scroll-target="#rectangles"><span class="header-section-number">8.2</span> Rectangles</a></li>
-  <li><a href="#sec-lines" id="toc-sec-lines" class="nav-link" data-scroll-target="#sec-lines"><span class="header-section-number">8.3</span> Straight lines</a></li>
-  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text"><span class="header-section-number">8.4</span> Text</a></li>
-  <li><a href="#highlighting-multichannel-audio-data" id="toc-highlighting-multichannel-audio-data" class="nav-link" data-scroll-target="#highlighting-multichannel-audio-data"><span class="header-section-number">8.5</span> Highlighting multichannel audio data</a></li>
+  <li><a href="#arrows" id="toc-arrows" class="nav-link active" data-scroll-target="#arrows"><span class="header-section-number">9.1</span> Arrows</a></li>
+  <li><a href="#rectangles" id="toc-rectangles" class="nav-link" data-scroll-target="#rectangles"><span class="header-section-number">9.2</span> Rectangles</a></li>
+  <li><a href="#sec-lines" id="toc-sec-lines" class="nav-link" data-scroll-target="#sec-lines"><span class="header-section-number">9.3</span> Straight lines</a></li>
+  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text"><span class="header-section-number">9.4</span> Text</a></li>
+  <li><a href="#highlighting-multichannel-audio-data" id="toc-highlighting-multichannel-audio-data" class="nav-link" data-scroll-target="#highlighting-multichannel-audio-data"><span class="header-section-number">9.5</span> Highlighting multichannel audio data</a></li>
   </ul>
 </nav>
     </div>
@@ -243,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></h1>
 </div>
 
 
@@ -259,8 +265,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><code>praatpicture</code> offers several ways of highlighting figure components: drawing arrows, rectangles, and straight lines, and adding text.</p>
-<section id="arrows" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="arrows"><span class="header-section-number">8.1</span> Arrows</h2>
+<section id="arrows" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="arrows"><span class="header-section-number">9.1</span> Arrows</h2>
 <p>Perhaps you’ve plotted a picture of a short sentence, like this, containing a waveform, speckled pitch contour, spectrogram, and annotations:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -339,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The <code>code</code> argument determines which way the arrow is pointing; <code>code = 3</code> will produce a double-headed arrow. Here’s a plot with a double headed arrow showing the gap in pitch tracking the word “laksen”:</p>
+<p>The <code>code</code> argument determines which way the arrow is pointing; <code>code = 3</code> will produce a double-headed arrow. Here’s a plot with a double headed arrow showing the gap in pitch tracking the word <em>laksen</em>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
@@ -408,8 +414,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="rectangles" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="rectangles"><span class="header-section-number">8.2</span> Rectangles</h2>
+<section id="rectangles" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="rectangles"><span class="header-section-number">9.2</span> Rectangles</h2>
 <p>You can draw rectangles on plot components using the <code>draw_rectangle</code> argument. The argument structure is similar to <code>draw_arrow</code>:</p>
 <ul>
 <li>the name of the plot component to add the rectangle to;</li>
@@ -532,8 +538,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>There are a few other options that can be passed to <code>draw_rectangle</code> which aren’t covered here; see <code>help(rect)</code> if you’re interested.</p>
 </section>
-<section id="sec-lines" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="sec-lines"><span class="header-section-number">8.3</span> Straight lines</h2>
+<section id="sec-lines" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="sec-lines"><span class="header-section-number">9.3</span> Straight lines</h2>
 <p>In addition to arrows and rectangles, the argument <code>draw_lines</code> allows you to add one or more straight lines to a plot. The structure of <code>draw_lines</code> arguments is a little different from <code>draw_rectangle</code> and <code>draw_arrow</code>, but mostly in the sense that it has to be a list instead of a vector (i.e.&nbsp;<code>list()</code> and not <code>c()</code>). The first element of the list should be the plot component to draw on, and other elements are arguments to be passed to the <code>abline()</code> function. See <code>help(abline)</code> for more information about this.</p>
 <p>In the figure that we’ve seen previously, we could add a horizontal line at 2,500 Hz in the spectrogram by passing <code>h = 2500</code>, like so:</p>
 <div class="cell" data-layout-align="center">
@@ -608,7 +614,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>If you’ve ever plotted formants on their own using <code>praatpicture</code>, you will have seen the <code>draw_lines</code> argument in use before <a href="formant.html#sec-formant-lines">see&nbsp;<span>6.1.6</span></a>:</p>
+<p>If you’ve ever plotted formants on their own using <code>praatpicture</code>, you will have seen the <code>draw_lines</code> argument in use before <a href="formant.html#sec-formant-lines">see&nbsp;<span>7.1.6</span></a>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'formant'</span>, <span class="st">'TextGrid'</span>),</span>
@@ -693,8 +699,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="text" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="text"><span class="header-section-number">8.4</span> Text</h2>
+<section id="text" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="text"><span class="header-section-number">9.4</span> Text</h2>
 <p>You may want to add some text to a plot apart from the annotations found in a TextGrid. You can do this with the <code>annotate</code> argument. This argument should consist of a vector with the following structure:</p>
 <ul>
 <li>the name of the plot component to annotate;</li>
@@ -779,22 +785,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Changing the font size and type of this type of annotation is only possible if you have the latest development version of <code>praatpicture</code> installed.</p>
-</div>
-</div>
 </section>
-<section id="highlighting-multichannel-audio-data" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="highlighting-multichannel-audio-data"><span class="header-section-number">8.5</span> Highlighting multichannel audio data</h2>
+<section id="highlighting-multichannel-audio-data" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="highlighting-multichannel-audio-data"><span class="header-section-number">9.5</span> Highlighting multichannel audio data</h2>
 <p>If you have data with multiple channels and you want to highlight just one of those channels, instead of writing <code>sound</code> as the first part of the highlighting argument, you can write the number of the channel instead. Here, we add an arrow to the third signal and write some text on the fourth signal:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/multichannel.wav'</span>,</span>
@@ -1053,12 +1046,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./intensity.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intensity</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intensity</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./par.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
