@@ -82,7 +82,7 @@ praatpicture('ex/ex.wav',
 
 ## Relative sizes of plot components
 
-When using the default `frames`, the waveform is relatively small, the spectrogram is larger, and the annotations are smaller than either. When using more or less `frames`, they are all the same size. This can be controlled with the `proportion` argument, which gives the percentage in size of each component; this should add up to 100%. The default is `c(30,50,20)`, i.e. 30% waveform, 50% spectrogram, and 20% annotation. 
+When using the default `frames`, the waveform is relatively small, the spectrogram is larger, and the annotations are smaller than either. When using more or less `frames`, they are all the same size. This can be controlled with the `proportion` argument, which gives the percentage in size of each component. The default is `c(30,50,20)`, i.e. 30% waveform, 50% spectrogram, and 20% annotation.
 
 The following reduces the size of the waveform and annotations to 15% each, and increases the size of the spectrogram to 70%:
 
@@ -127,6 +127,16 @@ praatpicture('ex/ex.wav',
              time_axisLabel = 'Time in seconds')
 ```
 
+If you prefer your x-axis to be based on milliseconds rather than seconds, you can control this with the `tUnit` argument, which should then be set to `tUnit = 'ms'`.
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2,
+             tUnit = 'ms')
+```
+
 The y-axes, like the x-axes, also show only axis limits by default. This can be changed globally using the `min_max_only` argument, which is `TRUE` by default:
 
 ```{r}
@@ -150,4 +160,26 @@ The argument `mainTitle` can be used to add a title on top of your plot, like th
 praatpicture('ex/ex.wav', 
              start = 1.2,
              mainTitle = 'I am a happy little plot')
+```
+
+You can control the vertical aligment of the title with the `mainTitleAlignment` argument. This has to be a number between `0` and `1`, where `0` is the left edge of the plot and `1` is the right edge of the plot. As such, `0.5` is a central title:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2,
+             mainTitle = 'I am a happy little plot',
+             mainTitleAlignment = 0.5)
+```
+
+The title can be placed anywhere -- this one is further to the right:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav', 
+             start = 1.2,
+             mainTitle = 'I am a happy little plot',
+             mainTitleAlignment = 0.8)
 ```

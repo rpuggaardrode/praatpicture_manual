@@ -8,8 +8,6 @@ library(praatpicture)
 
 The intensity contours plotted by `praatpicture` by default look similar to those produced by Praat, but users have several options regarding both the general appearance of intensity contours and the underlying signal processing, or to capitalize on the signal processing provided by Praat (see @sec-intensity-praat). We'll cover those options here.
 
-## Apperance
-
 ### Range
 
 By default, the amplitude range for intensity plots is dynamically determined to show the entire contour. The amplitude range can be controlled with the `intensity_range` argument. Here, we show 0--80 dB:
@@ -55,7 +53,21 @@ praatpicture('ex/ex.wav',
              intensity_axisLabel = 'Root-mean-squared amplitude (dB)')
 ```
 
-### Overlaying on spectrogram
+### Line width
+
+If you want to draw intensity contours with thicker, you can set the `drawSize` argument larger than `1` (which will also affect other drawn derived signals, i.e. pitch or formants).
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'intensity'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             drawSize = 3)
+```
+
+### Overlaying on spectrogram {#sec-intensity-overlay}
 
 Instead of drawing intensity in its own frame, it is also possible to overlay an intensity contour on a spectrogram. In this case, `intensity` should not be specified as one of the `frames`; this is instead controlled with the Boolean `intensity_plotOnSpec` argument.
 
@@ -86,7 +98,7 @@ praatpicture('ex/ex.wav',
 
 Notice that the y-axis label will match the color of the intensity contour.
 
-When overlaying an intensity contour on a spectrogram, there is the added option of having a wider line with a separate background color, which helps the contour stand out more. For example, we may want the intesntiy contour in the above plot to have a lighter green background color. In this case, we can pass a vector to `intensity_color` specifying first the main color, and then the background:
+When overlaying an intensity contour on a spectrogram, there is the added option of having a wider line with a separate background color, which helps the contour stand out more. For example, we may want the intensity contour in the above plot to have a lighter green background color. In this case, we can pass a vector to `intensity_color` specifying first the main color, and then the background:
 
 ```{r}
 #| fig-align: center
@@ -136,10 +148,6 @@ praatpicture('ex/ex.wav',
              spec_dynamicRange = 0)
 ```
 
-:::
-
-::: {.callout-warning}
-The option of including a background color for intensity contours when overlaying on a spectrogram is a recent addition to the library, and it is not yet possible in the version of `praatpicture` available on CRAN. You have to download the development version if you would like to use this.
 :::
 
 ## Calculate using R or Praat? {#sec-intensity-praat}

@@ -9,6 +9,7 @@ book:
   chapters:
     - index.qmd
     - basics.qmd
+    - shiny.qmd
     - waveform.qmd
     - TextGrid.qmd
     - spec.qmd

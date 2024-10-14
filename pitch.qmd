@@ -35,6 +35,33 @@ praatpicture('ex/ex.wav',
              pitch_plotType = 'speckle')
 ```
 
+If you want to draw a pitch contour with a thicker line, you can set the `drawSize` argument larger than `1` (which will also affect other drawn derived signals, i.e. formants or intensity).
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             drawSize = 3)
+```
+
+The `speckleSize` argument works similarly if you want larger points in a speckled plot.
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             speckleSize = 2)
+```
+
+If you want smaller speckles, you can set `speckleSize` lower, e.g. `0.5`.
+
 ### Frequency range
 
 The default frequency range for pitch plots shows between 50--500 Hz. This is rather broad for most purposes. Frequency range can be controlled with the `pitch_freqRange` argument. Here, a frequency range between 80--250 Hz is probably more suitable:
@@ -237,9 +264,6 @@ praatpicture('ex/ex.wav',
              pitch_axisLabel = 'f0 (Hz)')
 ```
 
-::: {.callout-warning}
-The option of including a background color for pitch traces when overlaying on a spectrogram is a recent addition to the library, and it is not yet possible in the version of `praatpicture` available on CRAN. You have to download the development version if you would like to use this.
-:::
 
 ## Calculate using R or Praat? {#sec-pitch-praat}
 
@@ -247,7 +271,7 @@ Pitch tracks are typically calculated on the fly in R using the `ksvF0()` functi
 
 There are several reasons why you may wish to use the signal processing tools from Praat instead. For example, Praat has a nice GUI allowing users to hand-edit the pitch contour, and if you're writing about pitch and using Praat to generate the pitch contours, it could be important to show actual examples of the data you're analyzing using the exact same parameter settings as you're using for the analysis. And in all likelihood the pitch detection method used by Praat (described by [Boersma 1993](https://www.fon.hum.uva.nl/paul/papers/Proceedings_1993.pdf){target='_blank'}) is more accurate than the one implemented in `ksvF0()`. Luckily, it's fairly straightforward to plot pitch contours in `praatpicture` that are calculated in Praat. 
 
-If you open and select a sound file in Praat, you can generate a pitch track by clicking the `Analyse periodicity -` button and selecting one of the `To Pitch...` options. Once you have done this, and you've potentially edited the pitch track according to your wishes, click the `Convert -` button and select `Down to PitchTier`. Select this `PitchTier` object, click the `Save` button and select `Save as text file...`, and save the object using the same base name as your sound file and the `.PitchTier` extension. If you have done this, `praatpicture` will automatically plot the values in the `.PitchTier` file instead of calculating pitch on the fly.
+If you open and select a sound file in Praat, you can generate a pitch track by clicking the `Analyse periodicity -` button and selecting one of the `To Pitch...` options. Once you have done this, and you've potentially edited the pitch track according to your wishes, click the `Save` button and `Save as text file...`, and save the object using the same base name as your sound file and the `.Pitch` extension. If you have done this, `praatpicture` will automatically plot the values in the `.PitchTier` file instead of calculating pitch on the fly. Alternatively, you can click the `Convert -` button and select `Down to PitchTier`, and save this as a text file with the `.PitchTier` extension. It typically does not matter whether you plot a `Pitch` or `PitchTier` object, but you may see some unwanted interpolation if you plot longer `PitchTier` objects with `pitch_plotType = 'speckle'`.
 
 As an example, this is a copy of the file that we've used throughout this section, which has a corresponding `.PitchTier` file (i.e., pitch is generated in Praat):
 

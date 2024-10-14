@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Make Praat Picture-style plots of acoustic data in R - 3&nbsp; The TextGrid</title>
+<title>Make Praat Picture-style plots of acoustic data in R - 4&nbsp; The TextGrid</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./TextGrid.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The TextGrid</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./TextGrid.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The TextGrid</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -150,74 +150,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shiny app</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./waveform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./TextGrid.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pitch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./formant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intensity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./highlight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./par.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./animation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./emu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
   </div>
 </li>
     </ul>
@@ -230,12 +236,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#managing-tiers" id="toc-managing-tiers" class="nav-link active" data-scroll-target="#managing-tiers"><span class="header-section-number">3.1</span> Managing tiers</a></li>
-  <li><a href="#vertical-lines-throughout-plots" id="toc-vertical-lines-throughout-plots" class="nav-link" data-scroll-target="#vertical-lines-throughout-plots"><span class="header-section-number">3.2</span> Vertical lines throughout plots</a></li>
-  <li><a href="#coloring-options" id="toc-coloring-options" class="nav-link" data-scroll-target="#coloring-options"><span class="header-section-number">3.3</span> Coloring options</a></li>
-  <li><a href="#tier-labels" id="toc-tier-labels" class="nav-link" data-scroll-target="#tier-labels"><span class="header-section-number">3.4</span> Tier labels</a></li>
-  <li><a href="#sec-typesetting" id="toc-sec-typesetting" class="nav-link" data-scroll-target="#sec-typesetting"><span class="header-section-number">3.5</span> Praat-style typesetting</a></li>
-  <li><a href="#horizontal-alignment" id="toc-horizontal-alignment" class="nav-link" data-scroll-target="#horizontal-alignment"><span class="header-section-number">3.6</span> Horizontal alignment</a></li>
+  <li><a href="#managing-tiers" id="toc-managing-tiers" class="nav-link active" data-scroll-target="#managing-tiers"><span class="header-section-number">4.1</span> Managing tiers</a></li>
+  <li><a href="#vertical-lines-throughout-plots" id="toc-vertical-lines-throughout-plots" class="nav-link" data-scroll-target="#vertical-lines-throughout-plots"><span class="header-section-number">4.2</span> Vertical lines throughout plots</a></li>
+  <li><a href="#coloring-options" id="toc-coloring-options" class="nav-link" data-scroll-target="#coloring-options"><span class="header-section-number">4.3</span> Coloring options</a></li>
+  <li><a href="#tier-labels" id="toc-tier-labels" class="nav-link" data-scroll-target="#tier-labels"><span class="header-section-number">4.4</span> Tier labels</a></li>
+  <li><a href="#sec-typesetting" id="toc-sec-typesetting" class="nav-link" data-scroll-target="#sec-typesetting"><span class="header-section-number">4.5</span> Praat-style typesetting</a></li>
+  <li><a href="#horizontal-alignment" id="toc-horizontal-alignment" class="nav-link" data-scroll-target="#horizontal-alignment"><span class="header-section-number">4.6</span> Horizontal alignment</a></li>
   </ul>
 </nav>
     </div>
@@ -244,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The TextGrid</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The TextGrid</span></h1>
 </div>
 
 
@@ -270,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The <code>gloss</code> and <code>trans</code> tiers look a bit weird! We’ll see why in <a href="#sec-typesetting"><span>Section&nbsp;3.5</span></a>.</p>
+<p>The <code>gloss</code> and <code>trans</code> tiers look a bit weird! We’ll see why in <a href="#sec-typesetting"><span class="quarto-unresolved-ref">sec-typesetting</span></a>.</p>
 <p>If there is no <code>.TextGrid</code> file available, you will get the following warning:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/no_tg.wav'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -278,13 +284,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Error in praatpicture("ex/no_tg.wav"): There is no TextGrid file available for this sound file. Either create the plot without a TextGrid by using the frames argument, create a TextGrid object using the make_TextGrid() function and pass it to the tg_obj argument, or create a TextGrid using Praat or the functionality available in the rPraat package.</code></pre>
 </div>
 </div>
-<p>The <code>make_TextGrid()</code> function is introduced in <a href="make_TextGrid.html"><span>Chapter&nbsp;10</span></a>.</p>
-<section id="managing-tiers" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="managing-tiers"><span class="header-section-number">3.1</span> Managing tiers</h2>
-<p>The above figure has six tiers, which is probably not an unusual situation, but in these cases it’s also nice to have the option of not plotting all of them. This behavior can be controlled with the <code>tg_tiers</code> argument. If we only want to plot the first tier, we can do the following:</p>
+<p>If your sound and TextGrid files have different base filenames, you can use the the <code>tg_file</code> argument to specify a TextGrid file, like so:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/no_tg.wav'</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_file =</span> <span class="st">'ex/tg.TextGrid'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -293,10 +296,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>We can also index tiers by their names instead of numbers. If we wanted to plot only the <code>vot</code> tier with voice onset time related landmarks:</p>
+<p>The <code>make_TextGrid()</code> function is introduced in <a href="#sec-make-tg"><span class="quarto-unresolved-ref">sec-make-tg</span></a>.</p>
+<section id="managing-tiers" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="managing-tiers"><span class="header-section-number">4.1</span> Managing tiers</h2>
+<p>The above figure has six annotation tiers, which is probably not an unusual situation, but in these cases it’s also nice to have the option of not plotting all of them. This behavior can be controlled with the <code>tg_tiers</code> argument. If we only want to plot the first tier, we can do the following:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'vot'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -305,10 +311,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>We can index as many tiers as we want this way, and can also use it to change the order in which tiers are plotted:</p>
+<p>We can also index tiers by their names instead of numbers. If we wanted to plot only the <code>vot</code> tier with voice onset time related landmarks:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'vot'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -317,15 +323,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="vertical-lines-throughout-plots" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="vertical-lines-throughout-plots"><span class="header-section-number">3.2</span> Vertical lines throughout plots</h2>
-<p>When combining annotations with signals, you will by default see vertical lines throughout all plot components corresponding to boundaries in the first annotation tier. This is unlike in Praat, where you will by default see lines corresponding to <em>all</em> annotation tiers. This behavior is controlled with the <code>tg_focusTier</code> argument; a “focus tier” is the term we use for (a) tier(s) important enough to be shown throughout all plot components.</p>
-<p><code>tg_focusTier</code> is by default set to <code>1</code>, i.e.&nbsp;the first tier. It also understands <code>all</code>, corresponding to the Praat defaults:</p>
+<p>We can index as many tiers as we want this way, and can also use it to change the order in which tiers are plotted:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTier =</span> <span class="st">'all'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -334,11 +335,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>If you want to plot annotations but aren’t interested in these vertical lines, <code>tg_focusTier</code> also understands <code>none</code>:</p>
+</section>
+<section id="vertical-lines-throughout-plots" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="vertical-lines-throughout-plots"><span class="header-section-number">4.2</span> Vertical lines throughout plots</h2>
+<p>When combining annotations with signals, you will by default see vertical lines throughout all plot components corresponding to boundaries in the first annotation tier. This is unlike in Praat, where you will by default see lines corresponding to <em>all</em> annotation tiers. This behavior is controlled with the <code>tg_focusTier</code> argument; a “focus tier” is the term we use for (a) tier(s) important enough to be shown throughout all plot components.</p>
+<p><code>tg_focusTier</code> is by default set to <code>1</code>, i.e.&nbsp;the first tier. It also understands <code>all</code>, corresponding to the Praat defaults:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTier =</span> <span class="st">'none'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTier =</span> <span class="st">'all'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -347,13 +352,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Or you can pass a vector of which tiers should be highlighted.</p>
-<p>The argument <code>tg_focusTierLineType</code> controls the vertical line type. The default is <code>dotted</code>, but you can use <a href="http://www.sthda.com/english/wiki/line-types-in-r-lty" target="_blank">any of the base R plotting line types</a>, fx <code>longdash</code>:</p>
+<p>If you want to plot annotations but aren’t interested in these vertical lines, <code>tg_focusTier</code> also understands <code>none</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTier =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>),</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierLineType =</span> <span class="st">'longdash'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTier =</span> <span class="st">'none'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -362,12 +365,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>If you have multiple “focus tiers” as above, it’s possible to use different line types for different tiers by passing a vector to <code>tg_focusTierLineType</code>. This can help differentiate the ‘source’ of the different vertical lines.</p>
+<p>Or you can pass a vector of which tiers should be highlighted.</p>
+<p>The argument <code>tg_focusTierLineType</code> controls the vertical line type. The default is <code>dotted</code>, but you can use <a href="http://www.sthda.com/english/wiki/line-types-in-r-lty" target="_blank">any of the base R plotting line types</a>, fx <code>longdash</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTier =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierLineType =</span> <span class="fu">c</span>(<span class="st">'dashed'</span>, <span class="st">'solid'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierLineType =</span> <span class="st">'longdash'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -376,15 +380,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>A similar result can be achieved with coloring, as shown below.</p>
-</section>
-<section id="coloring-options" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="coloring-options"><span class="header-section-number">3.3</span> Coloring options</h2>
-<p>Annotation text is black by default, but the color of annotations can be controlled with the <code>tg_color</code> argument. Fx if we want blue annotations:</p>
+<p>If you have multiple “focus tiers” as above, it’s possible to use different line types for different tiers by passing a vector to <code>tg_focusTierLineType</code>. This can help differentiate the ‘source’ of the different vertical lines.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_color =</span> <span class="st">'blue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTier =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierLineType =</span> <span class="fu">c</span>(<span class="st">'dashed'</span>, <span class="st">'solid'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -393,13 +394,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The color of vertical lines corresponding to annotation boundaries can be controlled with the <code>tg_focusTierColor</code> argument. For blue solid lines, we can use the following code:</p>
+<p>A similar result can be achieved with coloring, as shown below.</p>
+</section>
+<section id="coloring-options" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="coloring-options"><span class="header-section-number">4.3</span> Coloring options</h2>
+<p>Annotation text is black by default, but the color of annotations can be controlled with the <code>tg_color</code> argument. Fx if we want blue annotations:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_color =</span> <span class="st">'blue'</span>,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierLineType =</span> <span class="st">'solid'</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierColor =</span> <span class="st">'blue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_color =</span> <span class="st">'blue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -408,11 +411,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>You can pass multiple values to <code>tg_color</code> if you want the different tiers to have different colors:</p>
+<p>The color of vertical lines corresponding to annotation boundaries can be controlled with the <code>tg_focusTierColor</code> argument. For blue solid lines, we can use the following code:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_color =</span> <span class="fu">c</span>(<span class="st">'blue'</span>, <span class="st">'orange'</span>, <span class="st">'black'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_color =</span> <span class="st">'blue'</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierLineType =</span> <span class="st">'solid'</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierColor =</span> <span class="st">'blue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -421,14 +426,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This can be especially useful if you have multiple “focus tiers”, because you can then use a coloring scheme to show which vertical lines correspond to which colors, like so:</p>
+<p>You can pass multiple values to <code>tg_color</code> if you want the different tiers to have different colors:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_color =</span> <span class="fu">c</span>(<span class="st">'blue'</span>, <span class="st">'orange'</span>, <span class="st">'black'</span>),</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTier =</span> <span class="st">'all'</span>,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierLineType =</span> <span class="fu">c</span>(<span class="st">'solid'</span>, <span class="st">'solid'</span>, <span class="st">'dashed'</span>),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierColor =</span> <span class="fu">c</span>(<span class="st">'blue'</span>, <span class="st">'orange'</span>, <span class="st">'black'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_color =</span> <span class="fu">c</span>(<span class="st">'blue'</span>, <span class="st">'orange'</span>, <span class="st">'black'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -437,15 +439,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>In this case, the line types are also differentiated to show when the <code>phone</code> and <code>word</code> boundaries overlap with a dashed orange/black line.</p>
-</section>
-<section id="tier-labels" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="tier-labels"><span class="header-section-number">3.4</span> Tier labels</h2>
-<p>By default, the names of annotation tiers are plotted next to the tiers. Praat does not do this by default. It can be controlled with the <code>tg_tierLabels</code> argument, which is <code>TRUE</code> by default.</p>
+<p>This can be especially useful if you have multiple “focus tiers”, because you can then use a coloring scheme to show which vertical lines correspond to which colors, like so:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tierNames =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_color =</span> <span class="fu">c</span>(<span class="st">'blue'</span>, <span class="st">'orange'</span>, <span class="st">'black'</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTier =</span> <span class="st">'all'</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierLineType =</span> <span class="fu">c</span>(<span class="st">'solid'</span>, <span class="st">'solid'</span>, <span class="st">'dashed'</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_focusTierColor =</span> <span class="fu">c</span>(<span class="st">'blue'</span>, <span class="st">'orange'</span>, <span class="st">'black'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -454,9 +455,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>In this case, the line types are also differentiated to show when the <code>phone</code> and <code>word</code> boundaries overlap with a dashed orange/black line.</p>
 </section>
-<section id="sec-typesetting" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="sec-typesetting"><span class="header-section-number">3.5</span> Praat-style typesetting</h2>
+<section id="tier-labels" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="tier-labels"><span class="header-section-number">4.4</span> Tier labels</h2>
+<p>By default, the names of annotation tiers are plotted next to the tiers. Praat does not do this by default. It can be controlled with the <code>tg_tierNames</code> argument, which is <code>TRUE</code> by default.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'vot'</span>, <span class="st">'phone'</span>, <span class="st">'word'</span>),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tierNames =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TextGrid_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-typesetting" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="sec-typesetting"><span class="header-section-number">4.5</span> Praat-style typesetting</h2>
 <p>Praat has some <a href="https://www.fon.hum.uva.nl/praat/manual/Text_styles.html" target="_blank">shortcuts used for special typesetting</a> in TextGrids:</p>
 <ul>
 <li><code>%</code> will turn the following symbol <em>italic</em>;</li>
@@ -469,25 +487,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><code>praatpicture</code> does not emulate this behavior with default:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>,</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'word'</span>, <span class="st">'gloss'</span>, <span class="st">'ort'</span>, <span class="st">'trans'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'word'</span>, <span class="st">'gloss'</span>, <span class="st">'ort'</span>, <span class="st">'trans'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="TextGrid_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="TextGrid_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>It can however be emulated by setting the argument <code>tg_specialChar</code> to <code>TRUE</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>,</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'word'</span>, <span class="st">'gloss'</span>, <span class="st">'ort'</span>, <span class="st">'trans'</span>),</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_specialChar =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'word'</span>, <span class="st">'gloss'</span>, <span class="st">'ort'</span>, <span class="st">'trans'</span>),</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_specialChar =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="TextGrid_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="TextGrid_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -519,34 +537,34 @@ Other Praat-flavored special typesetting shortcuts do not work!
 </div>
 </div>
 </section>
-<section id="horizontal-alignment" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="horizontal-alignment"><span class="header-section-number">3.6</span> Horizontal alignment</h2>
+<section id="horizontal-alignment" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="horizontal-alignment"><span class="header-section-number">4.6</span> Horizontal alignment</h2>
 <p>The default is for annotations to be horizontally aligned in the middle of intervals, but it’s also possibly to right-align or left-align them. This is controlled with the <code>tg_alignment</code> argument.</p>
 <p>Here the text is right-aligned:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'phone'</span>, <span class="st">'word'</span>, <span class="st">'gloss'</span>, <span class="st">'ort'</span>, <span class="st">'trans'</span>),</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_specialChar =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_alignment =</span> <span class="st">'right'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'phone'</span>, <span class="st">'word'</span>, <span class="st">'gloss'</span>, <span class="st">'ort'</span>, <span class="st">'trans'</span>),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_specialChar =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_alignment =</span> <span class="st">'right'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="TextGrid_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="TextGrid_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The alignment doesn’t have to be the same for every tier. For example, you might want the regular central alignment for the <code>phone</code> and <code>word</code> tiers, but for the rest it might make sense to have them left-aligned. This can be achieved as follows:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>,</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'phone'</span>, <span class="st">'word'</span>, <span class="st">'gloss'</span>, <span class="st">'ort'</span>, <span class="st">'trans'</span>),</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_specialChar =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_alignment =</span> <span class="fu">c</span>(<span class="st">'central'</span>, <span class="st">'central'</span>, </span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                              <span class="st">'left'</span>, <span class="st">'left'</span>, <span class="st">'left'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/tg.wav'</span>,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'phone'</span>, <span class="st">'word'</span>, <span class="st">'gloss'</span>, <span class="st">'ort'</span>, <span class="st">'trans'</span>),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_specialChar =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_alignment =</span> <span class="fu">c</span>(<span class="st">'central'</span>, <span class="st">'central'</span>, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                              <span class="st">'left'</span>, <span class="st">'left'</span>, <span class="st">'left'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="TextGrid_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="TextGrid_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -792,12 +810,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./waveform.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The waveform</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The waveform</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./spec.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The spectrogram</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The spectrogram</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

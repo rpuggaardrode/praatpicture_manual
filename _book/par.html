@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Make Praat Picture-style plots of acoustic data in R - 9&nbsp; Base R graphics options</title>
+<title>Make Praat Picture-style plots of acoustic data in R - 10&nbsp; Base R graphics options</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./par.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./par.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -150,74 +150,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shiny app</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./waveform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pitch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./formant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intensity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./highlight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./par.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./animation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./emu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
   </div>
 </li>
     </ul>
@@ -230,11 +236,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#global-font-size" id="toc-global-font-size" class="nav-link active" data-scroll-target="#global-font-size"><span class="header-section-number">9.1</span> Global font size</a></li>
-  <li><a href="#global-coloring-options" id="toc-global-coloring-options" class="nav-link" data-scroll-target="#global-coloring-options"><span class="header-section-number">9.2</span> Global coloring options</a></li>
-  <li><a href="#fonts-and-font-families" id="toc-fonts-and-font-families" class="nav-link" data-scroll-target="#fonts-and-font-families"><span class="header-section-number">9.3</span> Fonts and font families</a></li>
-  <li><a href="#line-widths" id="toc-line-widths" class="nav-link" data-scroll-target="#line-widths"><span class="header-section-number">9.4</span> Line widths</a></li>
-  <li><a href="#saving-plots" id="toc-saving-plots" class="nav-link" data-scroll-target="#saving-plots"><span class="header-section-number">9.5</span> Saving plots</a></li>
+  <li><a href="#global-font-size" id="toc-global-font-size" class="nav-link active" data-scroll-target="#global-font-size"><span class="header-section-number">10.1</span> Global font size</a></li>
+  <li><a href="#global-coloring-options" id="toc-global-coloring-options" class="nav-link" data-scroll-target="#global-coloring-options"><span class="header-section-number">10.2</span> Global coloring options</a></li>
+  <li><a href="#fonts-and-font-families" id="toc-fonts-and-font-families" class="nav-link" data-scroll-target="#fonts-and-font-families"><span class="header-section-number">10.3</span> Fonts and font families</a></li>
+  <li><a href="#line-widths" id="toc-line-widths" class="nav-link" data-scroll-target="#line-widths"><span class="header-section-number">10.4</span> Line widths</a></li>
+  <li><a href="#saving-plots" id="toc-saving-plots" class="nav-link" data-scroll-target="#saving-plots"><span class="header-section-number">10.5</span> Saving plots</a></li>
   </ul>
 </nav>
     </div>
@@ -243,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></h1>
 </div>
 
 
@@ -259,8 +265,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><code>praatpicture</code> uses base R plotting functionality, which means that most of the base R plotting arguments are also available in <code>praatpicture</code> (although some aren’t, in case they’re already being used by internal functions). Here, I give an incomplete overview of what this allows users to do.</p>
-<section id="global-font-size" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="global-font-size"><span class="header-section-number">9.1</span> Global font size</h2>
+<section id="global-font-size" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="global-font-size"><span class="header-section-number">10.1</span> Global font size</h2>
 <p>You may be used to using the <code>cex</code> arguments (including <code>cex.main</code>, <code>cex.axis</code> etc) to control font size in base R plots. These mostly aren’t available to <code>praatpicture</code> for various reasons, mostly because they’re being used internally by the <code>praatpicture</code>-functions, but you can use the <code>ps</code> argument (short for point size) to control font size globally.</p>
 <p>Here’s a plot with <code>ps = 18</code>, a fairly large font size:</p>
 <div class="cell" data-layout-align="center">
@@ -287,8 +293,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="global-coloring-options" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="global-coloring-options"><span class="header-section-number">9.2</span> Global coloring options</h2>
+<section id="global-coloring-options" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="global-coloring-options"><span class="header-section-number">10.2</span> Global coloring options</h2>
 <p>We’ve already seen that you have great flexibility with coloring of various elements in <code>praatpicture</code>. There are also some global coloring options available. For example, the <code>bg</code> argument controls the background color. For the Praat feeling, you could set it to pink:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>, </span>
@@ -375,8 +381,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="fonts-and-font-families" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="fonts-and-font-families"><span class="header-section-number">9.3</span> Fonts and font families</h2>
+<section id="fonts-and-font-families" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="fonts-and-font-families"><span class="header-section-number">10.3</span> Fonts and font families</h2>
 <p>The <code>font</code> argument controls the face of the font in text. If you want everything to be boldface, you can set <code>font</code> (and <code>font.axis</code>) to <code>2</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>, </span>
@@ -432,8 +438,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="line-widths" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="line-widths"><span class="header-section-number">9.4</span> Line widths</h2>
+<section id="line-widths" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="line-widths"><span class="header-section-number">10.4</span> Line widths</h2>
 <p>The <code>lwd</code> arguments can be used to control line widths globally. You can use this to produce a plot that <em>really</em> stands out.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>, </span>
@@ -448,8 +454,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The <code>lty</code> argument controls the global line type. You could use this if you wanted, say, dashed lines for all plot elements (although you probably don’t want this!)</p>
 </section>
-<section id="saving-plots" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="saving-plots"><span class="header-section-number">9.5</span> Saving plots</h2>
+<section id="saving-plots" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="saving-plots"><span class="header-section-number">10.5</span> Saving plots</h2>
 <p>You can save plots however you usually like to do this. If you use RStudio, you can use the <code>Export</code> function from the plotting window in the GUI. You can also use <code>png()</code>, <code>pdf()</code>, <code>tiff()</code>, and related functions to your heart’s content.</p>
 
 
@@ -692,12 +698,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./highlight.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./make_TextGrid.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -4,7 +4,7 @@
 
 Many phoneticians and linguists use R for a big portion of their data processing and analysis pipeline, and increasingly also for preparing manuscripts and presentations using the RMarkdown and Quarto formats. A big advantage of these formats is the ability to generate plots on the fly using R code. A very important visualization in the phonetician's arsenal shows one or more time-aligned signals (such as waveform, spectrogram, or pitch) together with an annotation. These are usually made in [Praat](https://www.fon.hum.uva.nl/praat){target='_blank'}. `praatpicture` -- named in tribute of Praat's plotting GUI -- implements this kind of visualization as a base R plot. The package provides easy and fast out-of-the-box solutions but also a high extent of flexibility.
 
-`praatpicture` is in the R package repository [CRAN](https://cran.r-project.org/web/packages/praatpicture/){target='_blank'}, and can be installed with the following command:
+Version 1.3.0 of `praatpicture` is in the R package repository [CRAN](https://cran.r-project.org/web/packages/praatpicture/){target='_blank'}, and can be installed with the following command:
 
 ```{r}
 #| eval: false
@@ -38,7 +38,7 @@ A fair amount of time goes into making `praatpicture`, so if you use it for publ
 
 You can either cite the R package directly, or refer to this paper:
 
-Puggaard-Rode, Rasmus (2024) `praatpicture`. A library for making flexible Praat Picture-style figures in R. *Proceedings of the 13th International Seminar on Speech Production*.
+[Puggaard-Rode, Rasmus (2024) `praatpicture`. A library for making flexible Praat Picture-style figures in R. In Cécile Fougeron & Pascal Perrier (eds.), *Proceedings of the 13th International Seminar on Speech Production*, 115--118.](https://issp24.sciencesconf.org/data/pages/proceedings_long_papers.pdf#page=157){target='_blank'}
 
 ## Crucial libraries and data sources
 
@@ -54,6 +54,8 @@ The following libraries are crucial for the functionality of `praatpicture`:
 * `soundgen` is used to used for Hertz-to-ERB conversion
 * `tuneR` is used to import WAV files into R
 * `wrassp` is used for calculating pitch, formants, and intensity on the fly
+
+The Shiny implementation relies on the `shiny`, `shinyjs`, and `bslib` libraries.
 
 The data used for illustrations in this manual come from a few different sources:
 

@@ -1,4 +1,4 @@
-# Embedding audio
+# Embedding audio {#sec-talking}
 
 It's very nice when presentations about phonetics have audio in them! It can take a fair amount of fiddling to extract audio files, get them insert into slide decks, etc. The function `talking_praatpicture()` aims to make this process much easier, by creating single-frame video files including a `praatpicture()`-style image and accompanying audio.
 

@@ -48,6 +48,48 @@ praatpicture('ex/fmt.wav',
              formant_plotType = 'draw')
 ```
 
+If you want to draw formant contours with thicker, you can set the `drawSize` argument larger than `1` (which will also affect other drawn derived signals, i.e. pitch or intensity).
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/fmt.wav',
+             start = 0.4, end = 0.85,
+             frames = c('sound', 'formant'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             formant_plotType = 'draw',
+             drawSize = 3)
+```
+
+The `speckleSize` argument works similarly if you want larger points in a speckled plot.
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/fmt.wav',
+             frames = c('sound', 'formant'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             speckleSize = 2)
+```
+
+### Number of formants to plot
+
+The `formant_number` argument controls how many formants to show. Here we plot only the first three formants:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/fmt.wav',
+             frames = c('sound', 'formant'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             formant_number = 3)
+```
+
+Note that this is not the same as only *estimating* three formants, which is controlled with the `formant_maxN` argument as shown below. Changing `formant_maxN` will change the signal processing, while `formant_number` only controls how many formants are shown in the plot. You will get an error if `formant_number` is higher than `formant_maxN`.
+
 ### Frequency range
 
 The default frequency range for formant plots shows between 50--5500 Hz. This is rather broad for most purposes. Frequency range can be controlled with the `formant_freqRange` argument. Here, a frequency range between 100--4000 Hz is probably more suitable:
@@ -137,7 +179,7 @@ praatpicture('ex/fmt.wav',
 
 ### Horizontal dotted lines {#sec-formant-lines}
 
-Following the Praat defaults for formant plotting, horizontal dotted lines are shown in formant plots at multiples of 1000 Hz. In the version of `praatpicture` currently on CRAN, this is controlled with the `formant_dottedLines` argument, which can be set to `FALSE` if you want to override this behavior. In the latest development version of `praatpicture`, however, this is controlled with the more general `draw_lines` argument, and you can override the default dotted lines by setting `draw_lines` to `NULL`: 
+Following the Praat defaults for formant plotting, horizontal dotted lines are shown in formant plots at multiples of 1000 Hz. This is controlled with the general `draw_lines` argument, and you can override the default dotted lines by setting `draw_lines` to `NULL`: 
 
 ```{r}
 #| fig-align: center
@@ -239,10 +281,6 @@ praatpicture('ex/fmt.wav',
                                'pink', 'lightblue', 'green', 'yellow', 
                                'magenta'))
 ```
-
-::: {.callout-warning}
-The option of including a background color for formant tracks when overlaying on a spectrogram is a recent addition to the library, and it is not yet possible in the version of `praatpicture` available on CRAN. You have to download the development version if you would like to use this.
-:::
 
 ## Calculate using R or Praat? {#sec-formant-praat}
 

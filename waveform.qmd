@@ -19,7 +19,7 @@ praatpicture('ex/index_stereo.wav',
              proportion = c(70, 30))
 ```
 
-You may not want this; if you prefer plotting just a single channels, you can controls this with the `wave_channels` argument. For plotting just the seconds channel:
+You may not want this; if you prefer plotting just a single channel, you can controls this with the `wave_channels` argument. For plotting just the second channel:
 
 ```{r}
 #| fig-align: center
@@ -86,7 +86,7 @@ praatpicture('ex/multichannel.wav',
              start = 0.6, end = 2.4,
              frames = c('sound', 'TextGrid'),
              proportion = c(70, 30),
-             wave_channelNames = c('audio', 'airflow', 'Pio', 'EGG'))
+             wave_channelNames = c('audio', 'airflow', 'EGG', 'Pio'))
 ```
 
 You can of course also label just a single channel:
@@ -124,6 +124,17 @@ praatpicture('ex/multichannel.wav',
              wave_color=c('red', 'black', 'orange', 'blue'))
 ```
 
-::: {.callout-warning}
-The option of assigning different colors to different channels is a recent addition, and it is not yet possible in the version of `praatpicture` available on CRAN. You have to download the development version if you would like to use this.
-:::
+## Line width
+
+The width of the waveform line can be controlled with the `wave_lineWidth` argument. If you're plotting a very complex wave, it can be helpful to pass a number smaller than `1`, which is the default:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index.wav', 
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_lineWidth = 0.5)
+```
+
+You typically won't want to pass a number larger than `1`, but it could make sense if you're plotting only a very short sound snippet.

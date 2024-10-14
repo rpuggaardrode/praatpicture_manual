@@ -117,7 +117,7 @@ praatpicture('ex/multichannel.wav',
              frames = c('sound', 'spectrogram'))
 ```
 
-If we were interested in using a different channel for the spectrogram, the `spec_channel` argument can be used for that purpose. Here's a spectrogram showing the EGG signal:
+If we were interested in using a different channel for the spectrogram, the `spec_channel` argument can be used for that purpose. Here's a spectrogram showing the intraoral pressure signal:
 
 ```{r}
 #| fig-align: center
@@ -193,6 +193,85 @@ praatpicture('ex/tg.wav',
              wave_color = 'grey',
              spec_windowShape = 'square')
 ```
+
+Finally, this uses Blackman windows:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/tg.wav',
+             frames = c('sound', 'spectrogram'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             spec_windowShape = 'Blackman')
+```
+
+::: {.callout-tip collapse="true"}
+## Why should I care about window shape?
+
+Typically you don't need to! The [Praat documentation](https://www.fon.hum.uva.nl/praat/manual/Advanced_spectrogram_settings___.html){target='_blank'} says that window shapes other than Gaussian are included for "pedagogical purposes" only. When plotting spectrograms of speech sounds, it typically won't matter much if you use Gaussian, Hanning, or Hamming windows, as they have very similar shapes. These windows look like this:
+
+```{r}
+#| fig-align: center
+
+Gaussian_window <- phonTools::windowfunc(1000, type = 'gaussian')
+Hann_window <- phonTools::windowfunc(1000, type = 'hann')
+Hamming_window <- phonTools::windowfunc(1000, type = 'hamming')
+
+plot(Gaussian_window, type = 'l', xaxt = 'n', yaxt = 'n', xlab = '', ylab = '',
+     ylim = c(-0, 1), lwd = 2)
+lines(Hann_window, col = 'blue', lwd = 2)
+lines(Hamming_window, col = 'red', lwd = 2)
+text(0, 1, labels = 'Gaussian', adj = 0)
+text(0, 0.92, labels = 'Hanning', adj = 0, col = 'blue')
+text(0, 0.84, labels = 'Hamming', adj = 0, col = 'red')
+```
+These are all variations on the same idea, smooth functions that allow most of the information at the center of a window to pass through and less information at the edges. Bartlett windows can also be considered a variation on the same general idea, only they are pyramid-shaped rather than smooth, while square windows simply allow all information to pass through. Blackman windows are also smooth -- these are not available in Praat, but are available in the `phonTools` library that are used to generate spectrograms in `praatpicture`.
+
+```{r}
+#| fig-align: center
+
+Blackman_window <- phonTools::windowfunc(1000, type = 'blackman')
+Bartlett_window <- phonTools::windowfunc(1000, type = 'bartlett')
+square_window <- c(0, phonTools::windowfunc(998, type = 'rectangular'), 0)
+
+plot(Blackman_window, type = 'l', xaxt = 'n', yaxt = 'n', xlab = '', ylab = '',
+     ylim = c(-0, 1), lwd = 2)
+lines(Bartlett_window, col = 'blue', lwd = 2)
+lines(square_window, col = 'red', lwd = 2)
+text(20, 0.95, labels = 'Blackman', adj = 0)
+text(20, 0.87, labels = 'Bartlett', adj = 0, col = 'blue')
+text(20, 0.79, labels = 'square', adj = 0, col = 'red')
+```
+
+The argument for relying on Gaussian window shapes in Praat is that they are supposedly the only window shape that doesn't produce so-called *sidelobes* when plotting a simple sine wave. A spectrogram showing a 200 Hz sine wave should show only a horizontal line near 200 Hz, but you may also see vertical stripes in the spectrogram that are an artefact of the window shape, and do not indicate anything present in the signal. For example, here is a spectrogram of a 1-second 200 Hz sine wave. 
+
+```{r}
+praatpicture('ex/simple.wav', frames = c('sound', 'spectrogram'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             spec_windowShape = 'Hamming')
+```
+
+Unfortunately, when plotting spectrograms using the Gaussian window shapes available in the `phonTools` package, sidelobes are also visible in the spectrogram, although they are less prominent:
+
+```{r}
+praatpicture('ex/simple.wav', frames = c('sound', 'spectrogram'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             spec_windowShape = 'Gaussian')
+```
+
+This does not happen in Praat, and must mean that the `phonTools` Gaussian window shapes are not the same as those used by Praat. This is a mystery I have yet to solve, and this is why `praatpicture` also supports Blackman windows, because they do not have these artefacts:
+
+```{r}
+praatpicture('ex/simple.wav', frames = c('sound', 'spectrogram'),
+             proportion = c(30,70),
+             wave_color = 'grey',
+             spec_windowShape = 'Blackman')
+```
+
+:::
 
 ### Time step
 

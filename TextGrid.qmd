@@ -24,11 +24,20 @@ If there is no `.TextGrid` file available, you will get the following warning:
 praatpicture('ex/no_tg.wav')
 ```
 
+If your sound and TextGrid files have different base filenames, you can use the the `tg_file` argument to specify a TextGrid file, like so:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/no_tg.wav', 
+             tg_file = 'ex/tg.TextGrid')
+```
+
 The `make_TextGrid()` function is introduced in @sec-make-tg.
 
 ## Managing tiers
 
-The above figure has six tiers, which is probably not an unusual situation, but in these cases it's also nice to have the option of not plotting all of them. This behavior can be controlled with the `tg_tiers` argument. If we only want to plot the first tier, we can do the following: 
+The above figure has six annotation tiers, which is probably not an unusual situation, but in these cases it's also nice to have the option of not plotting all of them. This behavior can be controlled with the `tg_tiers` argument. If we only want to plot the first tier, we can do the following: 
 
 ```{r}
 #| fig-align: center
@@ -156,7 +165,7 @@ In this case, the line types are also differentiated to show when the `phone` an
 
 ## Tier labels
 
-By default, the names of annotation tiers are plotted next to the tiers. Praat does not do this by default. It can be controlled with the `tg_tierLabels` argument, which is `TRUE` by default.
+By default, the names of annotation tiers are plotted next to the tiers. Praat does not do this by default. It can be controlled with the `tg_tierNames` argument, which is `TRUE` by default.
 
 ```{r}
 #| fig-align: center

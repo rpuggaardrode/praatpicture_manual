@@ -60,6 +60,25 @@ emupicture(db_handle = db,
 
 `emupicture()` will otherwise accept all the same arguments as `praatpicture()`.
 
+## Embedding audio
+
+We saw in @sec-talking that it's possible to use the function `talking_praatpicture()` to make single-frame videos with embedded audio, which is very useful for presentations. This trick is also possible using `emupicture()`, by setting the argument `talking = TRUE`. 
+
+```{r}
+#| eval: false
+
+emupicture(db_handle = db,
+           session = '_044',
+           bundle = '044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA',
+           start = 1.4, end = 3.1,
+           tg_tiers = c('phone', 'landmarks'),
+           talking = TRUE)
+```
+
+![](img/emuvid.mp4){fig-align='center'}
+
+When using `emupicture()` with `talking = TRUE`, all the arguments from `talking_praatpicture()` can be used.
+
 ## Plotting data from SSFF files {#sec-ssff}
 
 If you plot derived signals like pitch with `emupicture()`, it'll by default be calculated on the fly, as in `praatpicture()`:

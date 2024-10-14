@@ -77,7 +77,7 @@ praatpicture('ex/ex.wav',
                             angle = 20))
 ```
 
-The `code` argument determines which way the arrow is pointing; `code = 3` will produce a double-headed arrow. Here's a plot with a double headed arrow showing the gap in pitch tracking the word "laksen":
+The `code` argument determines which way the arrow is pointing; `code = 3` will produce a double-headed arrow. Here's a plot with a double headed arrow showing the gap in pitch tracking the word *laksen*:
 
 ```{r}
 #| fig-align: center
@@ -455,14 +455,9 @@ praatpicture('ex/ex.wav',
                           col = 'red', font = 2, cex = 10))
 ```
 
-::: {.callout-warning}
-Changing the font size and type of this type of annotation is only possible if you have the latest development version of `praatpicture` installed.
-:::
-
 ## Highlighting multichannel audio data
 
 If you have data with multiple channels and you want to highlight just one of those channels, instead of writing `sound` as the first part of the highlighting argument, you can write the number of the channel instead. Here, we add an arrow to the third signal and write some text on the fourth signal:
-
 
 ```{r}
 #| fig-align: center

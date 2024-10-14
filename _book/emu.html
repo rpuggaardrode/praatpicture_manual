@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Make Praat Picture-style plots of acoustic data in R - 13&nbsp; EMU-SDMS integration</title>
+<title>Make Praat Picture-style plots of acoustic data in R - 14&nbsp; EMU-SDMS integration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./emu.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./emu.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -149,74 +149,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shiny app</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./waveform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The waveform</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The TextGrid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The spectrogram</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pitch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitch</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./formant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Formants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intensity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intensity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./highlight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Highlighting plot areas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./par.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./animation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./emu.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
   </div>
 </li>
     </ul>
@@ -229,8 +235,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="header-section-number">13.1</span> Basic usage</a></li>
-  <li><a href="#sec-ssff" id="toc-sec-ssff" class="nav-link" data-scroll-target="#sec-ssff"><span class="header-section-number">13.2</span> Plotting data from SSFF files</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="header-section-number">14.1</span> Basic usage</a></li>
+  <li><a href="#embedding-audio" id="toc-embedding-audio" class="nav-link" data-scroll-target="#embedding-audio"><span class="header-section-number">14.2</span> Embedding audio</a></li>
+  <li><a href="#sec-ssff" id="toc-sec-ssff" class="nav-link" data-scroll-target="#sec-ssff"><span class="header-section-number">14.3</span> Plotting data from SSFF files</a></li>
   </ul>
 </nav>
     </div>
@@ -239,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></h1>
 </div>
 
 
@@ -268,8 +275,8 @@ Where do I learn more about the EMU-SDMS?
 <p>Colleagues and I are currently working on a (hopefully!) user-friendly introduction to the EMU-SDMS which you can find <a href="https://rpuggaardrode.github.io/emuintro/" target="_blank">here</a>. It’s not quite ready yet. For a more in depth introduction, the <a href="https://ips-lmu.github.io/The-EMU-SDMS-Manual/index.html" target="_blank">manual</a> is very helpful.</p>
 </div>
 </div>
-<section id="basic-usage" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="basic-usage"><span class="header-section-number">13.1</span> Basic usage</h2>
+<section id="basic-usage" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="basic-usage"><span class="header-section-number">14.1</span> Basic usage</h2>
 <p><code>emupicture()</code> can only be used if you have an EMU database loaded in R. We’ll load a toy database for this purpose:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emuR)</span>
@@ -316,22 +323,40 @@ INFO: Nothing to update!</code></pre>
 </div>
 <p><code>emupicture()</code> will otherwise accept all the same arguments as <code>praatpicture()</code>.</p>
 </section>
-<section id="sec-ssff" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="sec-ssff"><span class="header-section-number">13.2</span> Plotting data from SSFF files</h2>
-<p>If you plot derived signals like pitch with <code>emupicture()</code>, it’ll by default be calculated on the fly, as in <code>praatpicture()</code>:</p>
-<div class="cell" data-layout-align="center">
+<section id="embedding-audio" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="embedding-audio"><span class="header-section-number">14.2</span> Embedding audio</h2>
+<p>We saw in <a href="#sec-talking"><span class="quarto-unresolved-ref">sec-talking</span></a> that it’s possible to use the function <code>talking_praatpicture()</code> to make single-frame videos with embedded audio, which is very useful for presentations. This trick is also possible using <code>emupicture()</code>, by setting the argument <code>talking = TRUE</code>.</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emupicture</span>(<span class="at">db_handle =</span> db,</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">session =</span> <span class="st">'_044'</span>,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">bundle =</span> <span class="st">'044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA'</span>,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">start =</span> <span class="fl">1.4</span>, <span class="at">end =</span> <span class="fl">3.1</span>,</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'phone'</span>, <span class="st">'landmarks'</span>),</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'TextGrid'</span>),</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>, </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">300</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">talking =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><video src="img/emuvid.mp4" class="img-fluid" controls=""><a href="img/emuvid.mp4">Video</a></video></p>
+</figure>
+</div>
+<p>When using <code>emupicture()</code> with <code>talking = TRUE</code>, all the arguments from <code>talking_praatpicture()</code> can be used.</p>
+</section>
+<section id="sec-ssff" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="sec-ssff"><span class="header-section-number">14.3</span> Plotting data from SSFF files</h2>
+<p>If you plot derived signals like pitch with <code>emupicture()</code>, it’ll by default be calculated on the fly, as in <code>praatpicture()</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emupicture</span>(<span class="at">db_handle =</span> db,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">session =</span> <span class="st">'_044'</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">bundle =</span> <span class="st">'044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA'</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">start =</span> <span class="fl">1.4</span>, <span class="at">end =</span> <span class="fl">3.1</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'phone'</span>, <span class="st">'landmarks'</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>, </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">300</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="emu_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="emu_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -339,7 +364,7 @@ INFO: Nothing to update!</code></pre>
 <p>As we’ve seen previously, <code>praatpicture()</code> allows you to calculate these derived signals in Praat, save them, and plot those signals instead of calculating signals on the fly. If you’re an EMU user, you’re likely familiar with SSFF (simple signal file format) tracks, which is a way of associating any signal, derived or otherwise, with a database. Using <code>emupicture()</code>, you can choose to plot SSFF tracks instead of calculating signals on the fly.</p>
 <p>Our toy database has two different SSFF tracks associated with it, which we can check with the <code>list_ssffTrackDefinitions()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_ssffTrackDefinitions</span>(db)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_ssffTrackDefinitions</span>(db)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -352,25 +377,6 @@ INFO: Nothing to update!</code></pre>
 <p><code>f0</code> is a pitch track calculated using Praat, and <code>rf0</code> is a pitch track calculated using <a href="https://github.com/google/REAPER" target="_blank">REAPER</a>. If you want to use one of these SSFF tracks instead of calculating pitch on the fly, you can do it using the <code>pitch_ssffExt</code> argument. There are similar arguments for <code>formant_ssffExt</code> and <code>intensity_ssffExt</code>.</p>
 <p>Here’s the pitch track calculated using Praat:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emupicture</span>(<span class="at">db_handle =</span> db,</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">session =</span> <span class="st">'_044'</span>,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">bundle =</span> <span class="st">'044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA'</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">start =</span> <span class="fl">1.4</span>, <span class="at">end =</span> <span class="fl">3.1</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'phone'</span>, <span class="st">'landmarks'</span>),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'TextGrid'</span>),</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>, </span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">300</span>),</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_ssffExt =</span> <span class="st">'f0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="emu_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>And here’s the pitch track calculated using REAPER:</p>
-<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emupicture</span>(<span class="at">db_handle =</span> db,</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">session =</span> <span class="st">'_044'</span>,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">bundle =</span> <span class="st">'044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA'</span>,</span>
@@ -379,11 +385,30 @@ INFO: Nothing to update!</code></pre>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'TextGrid'</span>),</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>, </span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">300</span>),</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_ssffExt =</span> <span class="st">'rf0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_ssffExt =</span> <span class="st">'f0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="emu_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And here’s the pitch track calculated using REAPER:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emupicture</span>(<span class="at">db_handle =</span> db,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">session =</span> <span class="st">'_044'</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">bundle =</span> <span class="st">'044nabo-nasal-alv-low-nst-NA-NA-NA-NA-NA'</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">start =</span> <span class="fl">1.4</span>, <span class="at">end =</span> <span class="fl">3.1</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">tg_tiers =</span> <span class="fu">c</span>(<span class="st">'phone'</span>, <span class="st">'landmarks'</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">300</span>),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">pitch_ssffExt =</span> <span class="st">'rf0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="emu_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -629,7 +654,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./animation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Animations</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
