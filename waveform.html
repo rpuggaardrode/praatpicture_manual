@@ -239,6 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#managing-channels" id="toc-managing-channels" class="nav-link active" data-scroll-target="#managing-channels"><span class="header-section-number">3.1</span> Managing channels</a></li>
   <li><a href="#labelling-channels" id="toc-labelling-channels" class="nav-link" data-scroll-target="#labelling-channels"><span class="header-section-number">3.2</span> Labelling channels</a></li>
   <li><a href="#coloring-options" id="toc-coloring-options" class="nav-link" data-scroll-target="#coloring-options"><span class="header-section-number">3.3</span> Coloring options</a></li>
+  <li><a href="#line-width" id="toc-line-width" class="nav-link" data-scroll-target="#line-width"><span class="header-section-number">3.4</span> Line width</a></li>
   </ul>
 </nav>
     </div>
@@ -411,6 +412,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="line-width" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="line-width"><span class="header-section-number">3.4</span> Line width</h2>
+<p>The width of the waveform line can be controlled with the <code>wave_lineWidth</code> argument. If you’re plotting a very complex wave, it can be helpful to pass a number smaller than <code>1</code>, which is the default:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/index.wav'</span>, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'TextGrid'</span>),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">30</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_lineWidth =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="waveform_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You typically won’t want to pass a number larger than <code>1</code>, but it could make sense if you’re plotting only a very short sound snippet.</p>
 
 
 </section>
