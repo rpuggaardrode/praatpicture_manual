@@ -6,9 +6,9 @@
 library(praatpicture)
 ```
 
-`praatpicture` offers several ways of highlighting figure components: drawing arrows, rectangles, and straight lines, and adding text. 
+`praatpicture` offers several ways of highlighting figure components: differential highlighting of parts of the signal using colors, line widths, etc., drawing arrows, rectangles, and straight lines, and adding text. 
 
-## Arrows
+## Differential highlighting of signals
 
 Perhaps you've plotted a picture of a short sentence, like this, containing a waveform, speckled pitch contour, spectrogram, and annotations:
 
@@ -24,7 +24,133 @@ praatpicture('ex/ex.wav',
              tg_tiers = 'word')
 ```
 
-You may want to add an arrow to this plot indicating the position of the peak in the pitch contour. This can be achieved with the `draw_arrow` argument. This argument should consist of a vector with the following structure:
+To make part of this plot stand out, you can use the `highlight` argument. This argument should consist of a named list with information about which part of the signals to highlight. This can be done with the `start` and `end` arguments. The list should also contain information about how the signal should stand out, using e.g. the `color` argument. Here part of the signal (from 0.5 to 1 seconds) is rendered in blue:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             highlight = list(start = 0.5, end = 1, color = 'blue'))
+```
+
+`start` and `end` do not have to be single numbers. If you want to highlight more than one part of the signal, these can be vectors. In addition to highlighting with color, we can also highlight by increasing the point size (with the `speckleSize` argument) or the line widths of derived signals (with the `drawSize` argument). Here we increase the point size of the pitch track and change the signal color in two parts of the plot:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             highlight = list(start = c(0.5, 1.2), 
+                              end = c(1, 1.5), 
+                              color = 'blue',
+                              speckleSize = 1.3))
+```
+
+Instead of using the `start` and `end` arguments, the TextGrid can also be used to delimit part of the plot for highlighting, by specifying the `tier` and a `label` to match. Here, we match the label *laksen*  in the `word` tier and make it purple:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             highlight = list(tier = 'word', label = 'laksen', color = 'purple'))
+```
+
+The `label` argument is evaluated using `grepl()`, so we can do fancy stuff like matching multiple labels with the OR operator `|`. Here, we highlight *laksen* and *torsken*:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             highlight = list(tier = 'word', label = 'laksen|torsken', 
+                              color = 'purple'))
+```
+
+Highlighting doesn't have to be done for all signals. In addition to `highlight`, `praatpicture` has the arguments `wave_highlight`, `spec_highlight`, `tg_highlight`, `pitch_highlight`, `formant_highlight`, and `intensity_highlight` for highlighting individual signals or highlighting individual intervals in a TextGrid. Here we highlight just the pitch:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             pitch_highlight = list(tier = 'word', label = 'laksen|torsken', 
+                              color = 'purple', speckleSize = 1.2))
+```
+
+The individual `*_highlight` arguments are structured in the usual way, so if you want to, say, overlay formants on the spectrogram and use festive colors for parts of their trajectory, that's also possible.
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             formant_plotOnSpec = TRUE,
+             formant_color = c('black', 'white'),
+             formant_number = 3, formant_dynamicRange = 14,
+             formant_highlight = list(tier = 'word', label = 'laksen|torsken',
+                                      color = c('red', 'orange', 'blue',
+                                                'pink', 'yellow', 'lightblue'),
+                                      speckleSize = 1.2))
+```
+
+It is possible to combine `highlight` with the signal specific highlights. In the above case, we might want to highlight all signals, but highlight the formants in a different way to make them stand out on top of the spectrogram. This can be done like so:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'pitch', 'spectrogram', 'TextGrid'),
+             proportion = c(20,20,50,10),
+             wave_color = 'grey',
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,300),
+             tg_tiers = 'word',
+             highlight = list(tier = 'word', label = 'laksen|torsken',
+                              color = 'purple', speckleSize = 1.2),
+             formant_plotOnSpec = TRUE,
+             formant_color = c('black', 'white'),
+             formant_number = 3, formant_dynamicRange = 14,
+             formant_highlight = list(tier = 'word', label = 'laksen|torsken',
+                                      color = c('red', 'orange', 'blue',
+                                                'pink', 'yellow', 'lightblue'),
+                                      speckleSize = 1.2))
+```
+
+## Arrows
+
+You may want to add an arrow to the above plot indicating the position of the peak in the pitch contour. This can be achieved with the `draw_arrow` argument. This argument should consist of a vector with the following structure:
 
 - the name of the plot component to add the arrow to (in this case `pitch`); 
 - and arguments for drawing an arrow which are then passed down to the `arrows` function. You can see what these arguments are by typing `help(arrows)`.
