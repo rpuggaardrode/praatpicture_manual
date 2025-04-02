@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Instead of using the <code>start</code> and <code>end</code> arguments, the TextGrid can also be used to delimit part of the plot for highlighting, by specifying the <code>tier</code> and a <code>label</code> to match. Here, we match the label <em>laksen</em> in the <code>word</code> tier and make it purple:</p>
+<p>Instead of using the <code>start</code> and <code>end</code> arguments, the TextGrid can also be used to delimit part of the plot for highlighting, by specifying the <code>tier</code> and a <code>label</code> to match. Here, we match the label <em>laksen</em> in the <code>word</code> tier and make the background light blue using the <code>background</code> argument:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>, <span class="st">'spectrogram'</span>, <span class="st">'TextGrid'</span>),</span>
@@ -333,7 +333,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">highlight =</span> <span class="fu">list</span>(<span class="at">tier =</span> <span class="st">'word'</span>, <span class="at">label =</span> <span class="st">'laksen'</span>, <span class="at">color =</span> <span class="st">'purple'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">highlight =</span> <span class="fu">list</span>(<span class="at">tier =</span> <span class="st">'word'</span>, <span class="at">label =</span> <span class="st">'laksen'</span>, </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">background =</span> <span class="st">'lightblue'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -352,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">300</span>),</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">tg_tiers =</span> <span class="st">'word'</span>,</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">highlight =</span> <span class="fu">list</span>(<span class="at">tier =</span> <span class="st">'word'</span>, <span class="at">label =</span> <span class="st">'laksen|torsken'</span>, </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">color =</span> <span class="st">'purple'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">background =</span> <span class="st">'lightblue'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
