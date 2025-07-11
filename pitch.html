@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -247,11 +247,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#axis-label" id="toc-axis-label" class="nav-link" data-scroll-target="#axis-label"><span class="header-section-number">6.1.5</span> Axis label</a></li>
   <li><a href="#sec-pitch-overlay" id="toc-sec-pitch-overlay" class="nav-link" data-scroll-target="#sec-pitch-overlay"><span class="header-section-number">6.1.6</span> Overlaying on spectrogram</a></li>
   </ul></li>
-  <li><a href="#sec-pitch-praat" id="toc-sec-pitch-praat" class="nav-link" data-scroll-target="#sec-pitch-praat"><span class="header-section-number">6.2</span> Calculate using R or Praat?</a></li>
-  <li><a href="#signal-processing" id="toc-signal-processing" class="nav-link" data-scroll-target="#signal-processing"><span class="header-section-number">6.3</span> Signal processing</a>
+  <li><a href="#sec-pitch-wave-overlay" id="toc-sec-pitch-wave-overlay" class="nav-link" data-scroll-target="#sec-pitch-wave-overlay"><span class="header-section-number">6.2</span> Overlaying on waveform</a></li>
+  <li><a href="#sec-pitch-praat" id="toc-sec-pitch-praat" class="nav-link" data-scroll-target="#sec-pitch-praat"><span class="header-section-number">6.3</span> Calculate using R or Praat?</a></li>
+  <li><a href="#signal-processing" id="toc-signal-processing" class="nav-link" data-scroll-target="#signal-processing"><span class="header-section-number">6.4</span> Signal processing</a>
   <ul class="collapse">
-  <li><a href="#floor-and-ceiling" id="toc-floor-and-ceiling" class="nav-link" data-scroll-target="#floor-and-ceiling"><span class="header-section-number">6.3.1</span> Floor and ceiling</a></li>
-  <li><a href="#measurement-interval" id="toc-measurement-interval" class="nav-link" data-scroll-target="#measurement-interval"><span class="header-section-number">6.3.2</span> Measurement interval</a></li>
+  <li><a href="#floor-and-ceiling" id="toc-floor-and-ceiling" class="nav-link" data-scroll-target="#floor-and-ceiling"><span class="header-section-number">6.4.1</span> Floor and ceiling</a></li>
+  <li><a href="#measurement-interval" id="toc-measurement-interval" class="nav-link" data-scroll-target="#measurement-interval"><span class="header-section-number">6.4.2</span> Measurement interval</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -276,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>The pitch tracks plotted by <code>praatpicture</code> by default look similar to those produced by Praat, but users have a lot of options regarding both the general appearance of pitch tracks and the underlying signal processing, or to capitalize on the signal processing provided by Praat (see <a href="#sec-pitch-praat"><span>Section&nbsp;6.2</span></a>). We’ll cover those options here.</p>
+<p>The pitch tracks plotted by <code>praatpicture</code> by default look similar to those produced by Praat, but users have a lot of options regarding both the general appearance of pitch tracks and the underlying signal processing, or to capitalize on the signal processing provided by Praat (see <a href="#sec-pitch-praat"><span>Section&nbsp;6.3</span></a>). We’ll cover those options here.</p>
 <section id="appearance" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="appearance"><span class="header-section-number">6.1</span> Appearance</h2>
 <section id="plot-type" class="level3" data-number="6.1.1">
@@ -491,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Some fancier coloring options are available when a pitch track is overlaid on spectrograms; more on that in <a href="#sec-pitch-overlay"><span>Section&nbsp;6.1.6</span></a>.</p>
+<p>Some fancier coloring options are available when a pitch track is overlaid on spectrograms or waveforms; more on that in <a href="#sec-pitch-overlay"><span>Section&nbsp;6.1.6</span></a> and <a href="#sec-pitch-wave-overlay"><span>Section&nbsp;6.2</span></a>.</p>
 </section>
 <section id="axis-label" class="level3" data-number="6.1.5">
 <h3 data-number="6.1.5" class="anchored" data-anchor-id="axis-label"><span class="header-section-number">6.1.5</span> Axis label</h3>
@@ -536,9 +537,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotOnSpec =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_color =</span> <span class="st">'blue'</span>,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_scale =</span> <span class="st">'log'</span>,</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>),</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_axisLabel =</span> <span class="st">'f0 (Hz)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>),</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_axisLabel =</span> <span class="st">'f0 (Hz)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -556,9 +556,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotOnSpec =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_color =</span> <span class="fu">c</span>(<span class="st">'blue'</span>, <span class="st">'lightblue'</span>),</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_scale =</span> <span class="st">'log'</span>,</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>),</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_axisLabel =</span> <span class="st">'f0 (Hz)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>),</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_axisLabel =</span> <span class="st">'f0 (Hz)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -576,9 +575,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotOnSpec =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_color =</span> <span class="fu">c</span>(<span class="st">'black'</span>, <span class="st">'white'</span>),</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_scale =</span> <span class="st">'log'</span>,</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>),</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_axisLabel =</span> <span class="st">'f0 (Hz)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>),</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_axisLabel =</span> <span class="st">'f0 (Hz)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -589,19 +587,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="sec-pitch-praat" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="sec-pitch-praat"><span class="header-section-number">6.2</span> Calculate using R or Praat?</h2>
-<p>Pitch tracks are typically calculated on the fly in R using the <code>ksvF0()</code> function from the <code>wrassp</code> library, which is a convenient way to call functions from the C library <code>libassp</code> in R. <code>ksvF0()</code> implements the pitch detection method described by <a href="https://doi.org/10.1159/000261691" target="_blank">Schäfer-Vincent (1983)</a>.</p>
-<p>There are several reasons why you may wish to use the signal processing tools from Praat instead. For example, Praat has a nice GUI allowing users to hand-edit the pitch contour, and if you’re writing about pitch and using Praat to generate the pitch contours, it could be important to show actual examples of the data you’re analyzing using the exact same parameter settings as you’re using for the analysis. And in all likelihood the pitch detection method used by Praat (described by <a href="https://www.fon.hum.uva.nl/paul/papers/Proceedings_1993.pdf" target="_blank">Boersma 1993</a>) is more accurate than the one implemented in <code>ksvF0()</code>. Luckily, it’s fairly straightforward to plot pitch contours in <code>praatpicture</code> that are calculated in Praat.</p>
-<p>If you open and select a sound file in Praat, you can generate a pitch track by clicking the <code>Analyse periodicity -</code> button and selecting one of the <code>To Pitch...</code> options. Once you have done this, and you’ve potentially edited the pitch track according to your wishes, click the <code>Save</code> button and <code>Save as text file...</code>, and save the object using the same base name as your sound file and the <code>.Pitch</code> extension. If you have done this, <code>praatpicture</code> will automatically plot the values in the <code>.PitchTier</code> file instead of calculating pitch on the fly. Alternatively, you can click the <code>Convert -</code> button and select <code>Down to PitchTier</code>, and save this as a text file with the <code>.PitchTier</code> extension. It typically does not matter whether you plot a <code>Pitch</code> or <code>PitchTier</code> object, but you may see some unwanted interpolation if you plot longer <code>PitchTier</code> objects with <code>pitch_plotType = 'speckle'</code>.</p>
-<p>As an example, this is a copy of the file that we’ve used throughout this section, which has a corresponding <code>.PitchTier</code> file (i.e., pitch is generated in Praat):</p>
+<section id="sec-pitch-wave-overlay" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-pitch-wave-overlay"><span class="header-section-number">6.2</span> Overlaying on waveform</h2>
+<p>It’s also possible to overlay pitch on the waveform. This works much the same as overlaying pitch on the spectrogram, controlled with the <code>pitch_plotOnWave</code> argument.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex_praatsp.wav'</span>,</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>),</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">70</span>),</span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'spectrogram'</span>),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">50</span>),</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotOnWave =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -610,14 +604,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>And this is that same snippet with pitch generated in R on the fly:</p>
+<p>As above, all the default pitch plotting parameters also apply when plotting pitch on a waveform:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>),</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">70</span>),</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'spectrogram'</span>),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">50</span>),</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotOnWave =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_color =</span> <span class="fu">c</span>(<span class="st">'black'</span>,<span class="st">'white'</span>),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>),</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_axisLabel =</span> <span class="st">'f0 (Hz)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -626,24 +623,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Reasonably similar results, but the <code>ksvF0()</code> contour is sometimes a bit more jagged, and it detects a rise that Praat does not find!</p>
-<p>Note that the signal processing options introduced below are only used when calculating pitch on the fly in R. If pitch is plotted from a <code>.PitchTier</code> file, they are ignored – in this case, you need to set your own signal processing parameters in Praat!</p>
-<p>As we will see in <a href="emu.html#sec-ssff"><span>Section&nbsp;14.3</span></a>, any method can in principle be used for calculating the plotted pitch tracks as long as the results are formatted in a particular way.</p>
 </section>
-<section id="signal-processing" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="signal-processing"><span class="header-section-number">6.3</span> Signal processing</h2>
-<p>The parameters used to predict pitch do not use <code>ksvF0()</code> defaults, but are rather set to emulate Praat as closely as possible. Some of these can’t be changed (using Gaussian-shaped <code>KAISER2_0</code> windows), but some can! You’ll find that some of the settings which can be toggled in Praat are not necessarily available in <code>praatpicture</code>, either because <code>ksvF0()</code> doesn’t allow you to change them, or because these settings are specific to the pitch tracking algorihtm(s) used in Praat.</p>
-<section id="floor-and-ceiling" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="floor-and-ceiling"><span class="header-section-number">6.3.1</span> Floor and ceiling</h3>
-<p>The lowest and highest pitch to look for is controlled with the <code>pitch_floor</code> and <code>pitch_ceiling</code> parameters. By default, <code>praatpicture</code> searches between 75–600 Hz, which is in most cases fine for plotting, but is worth limiting if you see octave jumps in the resulting plots.</p>
-<p>Increasing the range to 50–800 Hz does not change much, but provides a slightly smoother contour (probably because the measurement interval depends on these settings; see below).</p>
+<section id="sec-pitch-praat" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-pitch-praat"><span class="header-section-number">6.3</span> Calculate using R or Praat?</h2>
+<p>Pitch tracks are typically calculated on the fly in R using the <code>ksvF0()</code> function from the <code>wrassp</code> library, which is a convenient way to call functions from the C library <code>libassp</code> in R. <code>ksvF0()</code> implements the pitch detection method described by <a href="https://doi.org/10.1159/000261691" target="_blank">Schäfer-Vincent (1983)</a>.</p>
+<p>There are several reasons why you may wish to use the signal processing tools from Praat instead. For example, Praat has a nice GUI allowing users to hand-edit the pitch contour, and if you’re writing about pitch and using Praat to generate the pitch contours, it could be important to show actual examples of the data you’re analyzing using the exact same parameter settings as you’re using for the analysis. And in all likelihood the pitch detection method used by Praat (described by <a href="https://www.fon.hum.uva.nl/paul/papers/Proceedings_1993.pdf" target="_blank">Boersma 1993</a>) is more accurate than the one implemented in <code>ksvF0()</code>. Luckily, it’s fairly straightforward to plot pitch contours in <code>praatpicture</code> that are calculated in Praat.</p>
+<p>If you open and select a sound file in Praat, you can generate a pitch track by clicking the <code>Analyse periodicity -</code> button and selecting one of the <code>To Pitch...</code> options. Once you have done this, and you’ve potentially edited the pitch track according to your wishes, click the <code>Save</code> button and <code>Save as text file...</code>, and save the object using the same base name as your sound file and the <code>.Pitch</code> extension. If you have done this, <code>praatpicture</code> will automatically plot the values in the <code>.PitchTier</code> file instead of calculating pitch on the fly. Alternatively, you can click the <code>Convert -</code> button and select <code>Down to PitchTier</code>, and save this as a text file with the <code>.PitchTier</code> extension. It typically does not matter whether you plot a <code>Pitch</code> or <code>PitchTier</code> object, but you may see some unwanted interpolation if you plot longer <code>PitchTier</code> objects with <code>pitch_plotType = 'speckle'</code>.</p>
+<p>As an example, this is a copy of the file that we’ve used throughout this section, which has a corresponding <code>.PitchTier</code> file (i.e., pitch is generated in Praat):</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex_praatsp.wav'</span>,</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>),</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">70</span>),</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_floor =</span> <span class="dv">50</span>,</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_ceiling =</span> <span class="dv">800</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -652,14 +645,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>We’ll mostly see a change if we drastically reduce the range. Here I’ve set it to 100–200 Hz, i.e.&nbsp;a ceiling well below the higher range of this speaker. Here you’ll see that higher frequencies are missing:</p>
+<p>And this is that same snippet with pitch generated in R on the fly:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>),</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">70</span>),</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_floor =</span> <span class="dv">100</span>,</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_ceiling =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_freqRange =</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">250</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -668,17 +661,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>Reasonably similar results, but the <code>ksvF0()</code> contour is sometimes a bit more jagged, and it detects a rise that Praat does not find!</p>
+<p>Note that the signal processing options introduced below are only used when calculating pitch on the fly in R. If pitch is plotted from a <code>.PitchTier</code> file, they are ignored – in this case, you need to set your own signal processing parameters in Praat!</p>
+<p>As we will see in <a href="emu.html#sec-ssff"><span>Section&nbsp;14.3</span></a>, any method can in principle be used for calculating the plotted pitch tracks as long as the results are formatted in a particular way.</p>
 </section>
-<section id="measurement-interval" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="measurement-interval"><span class="header-section-number">6.3.2</span> Measurement interval</h3>
-<p>The intervals at which to measure pitch is controlled with the <code>pitch_timeStep</code> parameter. The default here is to calculate the measurement interval dynamically based on the <code>pitch_floor</code>, such that it is <span class="math inline">\(\frac{3}{4}\)</span> <code>pitch_floor</code>, which with the default floor of 75 Hz amounts to <code>0.01</code>, i.e.&nbsp;every 10 ms. But users can also specify a number (in ms). Here we take a lot more measures, once per ms:</p>
+<section id="signal-processing" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="signal-processing"><span class="header-section-number">6.4</span> Signal processing</h2>
+<p>The parameters used to predict pitch do not use <code>ksvF0()</code> defaults, but are rather set to emulate Praat as closely as possible. Some of these can’t be changed (using Gaussian-shaped <code>KAISER2_0</code> windows), but some can! You’ll find that some of the settings which can be toggled in Praat are not necessarily available in <code>praatpicture</code>, either because <code>ksvF0()</code> doesn’t allow you to change them, or because these settings are specific to the pitch tracking algorihtm(s) used in Praat.</p>
+<section id="floor-and-ceiling" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="floor-and-ceiling"><span class="header-section-number">6.4.1</span> Floor and ceiling</h3>
+<p>The lowest and highest pitch to look for is controlled with the <code>pitch_floor</code> and <code>pitch_ceiling</code> parameters. By default, <code>praatpicture</code> searches between 75–600 Hz, which is in most cases fine for plotting, but is worth limiting if you see octave jumps in the resulting plots.</p>
+<p>Increasing the range to 50–800 Hz does not change much, but provides a slightly smoother contour (probably because the measurement interval depends on these settings; see below).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>),</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">70</span>),</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_timeStep =</span> <span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_floor =</span> <span class="dv">50</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_ceiling =</span> <span class="dv">800</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -687,18 +687,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>And this is what it looks like with fewer measures, once every 50 ms:</p>
+<p>We’ll mostly see a change if we drastically reduce the range. Here I’ve set it to 100–200 Hz, i.e.&nbsp;a ceiling well below the higher range of this speaker. Here you’ll see that higher frequencies are missing:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>),</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">70</span>),</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_timeStep =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_floor =</span> <span class="dv">100</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_ceiling =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="pitch_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="measurement-interval" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="measurement-interval"><span class="header-section-number">6.4.2</span> Measurement interval</h3>
+<p>The intervals at which to measure pitch is controlled with the <code>pitch_timeStep</code> parameter. The default here is to calculate the measurement interval dynamically based on the <code>pitch_floor</code>, such that it is <span class="math inline">\(\frac{3}{4}\)</span> <code>pitch_floor</code>, which with the default floor of 75 Hz amounts to <code>0.01</code>, i.e.&nbsp;every 10 ms. But users can also specify a number (in ms). Here we take a lot more measures, once per ms:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>),</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">70</span>),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_timeStep =</span> <span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pitch_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And this is what it looks like with fewer measures, once every 50 ms:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">frames =</span> <span class="fu">c</span>(<span class="st">'sound'</span>, <span class="st">'pitch'</span>),</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">proportion =</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">70</span>),</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">wave_color =</span> <span class="st">'grey'</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_plotType =</span> <span class="st">'speckle'</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">pitch_timeStep =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pitch_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
