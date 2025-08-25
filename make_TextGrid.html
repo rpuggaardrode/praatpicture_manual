@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Make Praat Picture-style plots of acoustic data in R - 11&nbsp; Annotating interactively in R</title>
+<title>Make Praat Picture-style plots of acoustic data in R - 12&nbsp; Annotating interactively in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./talking_praatpicture.html" rel="next">
-<link href="./par.html" rel="prev">
+<link href="./slice.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./make_TextGrid.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./make_TextGrid.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -204,26 +204,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./slice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spectral slices</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./animation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./emu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
   </div>
 </li>
     </ul>
@@ -236,9 +242,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="header-section-number">11.1</span> Basic usage</a></li>
-  <li><a href="#showing-the-spectrogram" id="toc-showing-the-spectrogram" class="nav-link" data-scroll-target="#showing-the-spectrogram"><span class="header-section-number">11.2</span> Showing the spectrogram</a></li>
-  <li><a href="#dynamically-converting-sampa-to-ipa" id="toc-dynamically-converting-sampa-to-ipa" class="nav-link" data-scroll-target="#dynamically-converting-sampa-to-ipa"><span class="header-section-number">11.3</span> Dynamically converting SAMPA to IPA</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="header-section-number">12.1</span> Basic usage</a></li>
+  <li><a href="#showing-the-spectrogram" id="toc-showing-the-spectrogram" class="nav-link" data-scroll-target="#showing-the-spectrogram"><span class="header-section-number">12.2</span> Showing the spectrogram</a></li>
+  <li><a href="#dynamically-converting-sampa-to-ipa" id="toc-dynamically-converting-sampa-to-ipa" class="nav-link" data-scroll-target="#dynamically-converting-sampa-to-ipa"><span class="header-section-number">12.3</span> Dynamically converting SAMPA to IPA</a></li>
   </ul>
 </nav>
     </div>
@@ -247,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-make-tg" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></h1>
+<h1 class="title"><span id="sec-make-tg" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></h1>
 </div>
 
 
@@ -263,8 +269,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><code>praatpicture</code> is not designed to annotate sound files, something that Praat already does very well. But if you want to quickly make some simple annotations of a sound file and would for whatever reason prefer not to go through the process of making these in Praat, saving them in the right format, etc., there are simple functions available in <code>praatpicture</code> that allows you to do this interactively without leaving R. This is accomplished with the <code>make_TextGrid()</code> function.</p>
-<section id="basic-usage" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="basic-usage"><span class="header-section-number">11.1</span> Basic usage</h2>
+<section id="basic-usage" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="basic-usage"><span class="header-section-number">12.1</span> Basic usage</h2>
 <p>The <code>make_TextGrid</code> function takes two obligatory arguments:</p>
 <ul>
 <li><code>sound</code> the name of a sound file to annotate</li>
@@ -314,8 +320,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This now functions as a regular TextGrid!</p>
 <p>If you want to make annotations like this but you’re working with a larger sound file and don’t want to show all of it, you can use the <code>start</code> and <code>end</code> arguments to show just part o fthe sound file (as when plotting with <code>praatpicture</code>).</p>
 </section>
-<section id="showing-the-spectrogram" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="showing-the-spectrogram"><span class="header-section-number">11.2</span> Showing the spectrogram</h2>
+<section id="showing-the-spectrogram" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="showing-the-spectrogram"><span class="header-section-number">12.2</span> Showing the spectrogram</h2>
 <p>If you prefer annotating on the basis of the spectrogram, you can do this by setting the <code>show</code> argument to <code>'spectrogram'</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>new_tg <span class="ot">&lt;-</span> <span class="fu">make_TextGrid</span>(<span class="st">'ex/index.wav'</span>,</span>
@@ -330,8 +336,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>It otherwise works the same, but it is a fair bit slower since the spectrogram takes a while to generate.</p>
 </section>
-<section id="dynamically-converting-sampa-to-ipa" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="dynamically-converting-sampa-to-ipa"><span class="header-section-number">11.3</span> Dynamically converting SAMPA to IPA</h2>
+<section id="dynamically-converting-sampa-to-ipa" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="dynamically-converting-sampa-to-ipa"><span class="header-section-number">12.3</span> Dynamically converting SAMPA to IPA</h2>
 <p>If you want to use IPA characters in your annotation but don’t want to go through the process of finding them, the argument <code>sampa2ipa</code> allows you to type in SAMPA transcriptions and convert them on the fly to IPA.</p>
 <p>When I was making the first annotation tier of our sound file above and added the labels <code>b</code>, <code>a</code>, <code>h</code>, that was because I was lazy! These are actually a bilabial implosive, a low back vowel, and a voiced glottal fricative. I just didn’t want to find those symbols. I can do this easily with <code>sampa2ipa</code> set to <code>TRUE</code>:</p>
 <div class="cell">
@@ -597,13 +603,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./par.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Base R graphics options</span></span>
+      <a href="./slice.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spectral slices</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./talking_praatpicture.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Embedding audio</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

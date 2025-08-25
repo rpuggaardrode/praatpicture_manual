@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Make Praat Picture-style plots of acoustic data in R - 13&nbsp; Animations</title>
+<title>Make Praat Picture-style plots of acoustic data in R - 14&nbsp; Animations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./animation.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./animation.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Animations</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -204,26 +204,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./slice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spectral slices</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./animation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./emu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
   </div>
 </li>
     </ul>
@@ -236,8 +242,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="header-section-number">13.1</span> Basic usage</a></li>
-  <li><a href="#some-more-examples-because-its-fun" id="toc-some-more-examples-because-its-fun" class="nav-link" data-scroll-target="#some-more-examples-because-its-fun"><span class="header-section-number">13.2</span> Some more examples (because it’s fun!)</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="header-section-number">14.1</span> Basic usage</a></li>
+  <li><a href="#some-more-examples-because-its-fun" id="toc-some-more-examples-because-its-fun" class="nav-link" data-scroll-target="#some-more-examples-because-its-fun"><span class="header-section-number">14.2</span> Some more examples (because it’s fun!)</a></li>
   </ul>
 </nav>
     </div>
@@ -246,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Animations</span></h1>
 </div>
 
 
@@ -261,8 +267,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="basic-usage" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="basic-usage"><span class="header-section-number">13.1</span> Basic usage</h2>
+<section id="basic-usage" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="basic-usage"><span class="header-section-number">14.1</span> Basic usage</h2>
 <p>The function <code>praatanimation()</code> allows you to make animated <code>praatpicture()</code> style plots. It takes most of the same arguments as <code>praatpicture()</code>, but the numeric variables in <code>praatanimation()</code> can typically take twice as many values.</p>
 <p>For example, we could pass a vector of two numbers to <code>start</code> and a vector of two numbers to <code>end</code>. The first of the two numbers will then determine where the animation begins, and the second will determine where it ends. We can use this to gradually zoom in to a sound file:</p>
 <div class="cell">
@@ -289,10 +295,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>By default, these animations are shown in the <code>Viewer</code> pane for RStudio users. You can save them by setting the <code>useViewer</code> argument to <code>FALSE</code> and by specifying a file name. By default, animations are looping GIFs, but you can disable looping with the <code>loop</code> argument, and you can save animations as mp4 videos with the <code>outputFormat</code> argument.</p>
-<p>You can control the dimensions and quality of the resulting image, as well as font size, in the same way as we saw in <a href="talking_praatpicture.html#sec-video-qual"><span>Section&nbsp;12.3</span></a>.</p>
+<p>You can control the dimensions and quality of the resulting image, as well as font size, in the same way as we saw in <a href="talking_praatpicture.html#sec-video-qual"><span>Section&nbsp;13.3</span></a>.</p>
 </section>
-<section id="some-more-examples-because-its-fun" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="some-more-examples-because-its-fun"><span class="header-section-number">13.2</span> Some more examples (because it’s fun!)</h2>
+<section id="some-more-examples-because-its-fun" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="some-more-examples-because-its-fun"><span class="header-section-number">14.2</span> Some more examples (because it’s fun!)</h2>
 <p>An especially nice-looking use of <code>praatanimation()</code> is to move through the intensity plots by manipulating the <code>start</code> and <code>end</code> arguments:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praatanimation</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -563,12 +569,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./talking_praatpicture.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Embedding audio</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./emu.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

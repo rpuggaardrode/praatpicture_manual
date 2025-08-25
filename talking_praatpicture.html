@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Make Praat Picture-style plots of acoustic data in R - 12&nbsp; Embedding audio</title>
+<title>Make Praat Picture-style plots of acoustic data in R - 13&nbsp; Embedding audio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./talking_praatpicture.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./talking_praatpicture.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Embedding audio</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -204,26 +204,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./slice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spectral slices</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./animation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./emu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
   </div>
 </li>
     </ul>
@@ -236,9 +242,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="header-section-number">12.1</span> Basic usage</a></li>
-  <li><a href="#what-to-show-what-to-hear" id="toc-what-to-show-what-to-hear" class="nav-link" data-scroll-target="#what-to-show-what-to-hear"><span class="header-section-number">12.2</span> What to show, what to hear</a></li>
-  <li><a href="#sec-video-qual" id="toc-sec-video-qual" class="nav-link" data-scroll-target="#sec-video-qual"><span class="header-section-number">12.3</span> Image quality, dimensions, and font size</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage"><span class="header-section-number">13.1</span> Basic usage</a></li>
+  <li><a href="#what-to-show-what-to-hear" id="toc-what-to-show-what-to-hear" class="nav-link" data-scroll-target="#what-to-show-what-to-hear"><span class="header-section-number">13.2</span> What to show, what to hear</a></li>
+  <li><a href="#sec-video-qual" id="toc-sec-video-qual" class="nav-link" data-scroll-target="#sec-video-qual"><span class="header-section-number">13.3</span> Image quality, dimensions, and font size</a></li>
   </ul>
 </nav>
     </div>
@@ -247,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-talking" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></h1>
+<h1 class="title"><span id="sec-talking" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></h1>
 </div>
 
 
@@ -263,8 +269,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>It’s very nice when presentations about phonetics have audio in them! It can take a fair amount of fiddling to extract audio files, get them insert into slide decks, etc. The function <code>talking_praatpicture()</code> aims to make this process much easier, by creating single-frame video files including a <code>praatpicture()</code>-style image and accompanying audio.</p>
-<section id="basic-usage" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="basic-usage"><span class="header-section-number">12.1</span> Basic usage</h2>
+<section id="basic-usage" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="basic-usage"><span class="header-section-number">13.1</span> Basic usage</h2>
 <p><code>talking_praatpicture()</code> works essentially just like <code>praatpicture()</code>, and takes all the same arguments (plus a few more). As with <code>praatpicture()</code>, you can use it with just a single argument:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">talking_praatpicture</span>(<span class="st">'ex/ex.wav'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -281,8 +287,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">useViewer =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="what-to-show-what-to-hear" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="what-to-show-what-to-hear"><span class="header-section-number">12.2</span> What to show, what to hear</h2>
+<section id="what-to-show-what-to-hear" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="what-to-show-what-to-hear"><span class="header-section-number">13.2</span> What to show, what to hear</h2>
 <p>As in <code>praatpicture()</code>, you can determine exactly which parts of the file to show with the <code>start</code> and <code>end</code> arguments. Here we include just the second and third words:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">talking_praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -307,8 +313,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="sec-video-qual" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="sec-video-qual"><span class="header-section-number">12.3</span> Image quality, dimensions, and font size</h2>
+<section id="sec-video-qual" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sec-video-qual"><span class="header-section-number">13.3</span> Image quality, dimensions, and font size</h2>
 <p>The image quality and dimensions of a <code>talking_praatpicture()</code> is controlled with the <code>width</code> and <code>height</code> arguments, giving pixel numbers. The default is <code>1080</code> and <code>720</code>, equivalent to a 720p video. It may suit a presentation better with different dimensions. Here is an example that swaps those dimensions:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">talking_praatpicture</span>(<span class="st">'ex/ex.wav'</span>,</span>
@@ -578,12 +584,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./make_TextGrid.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./animation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Animations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

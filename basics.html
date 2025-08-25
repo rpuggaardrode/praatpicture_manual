@@ -204,26 +204,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./slice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spectral slices</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./make_TextGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Annotating interactively in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./talking_praatpicture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Embedding audio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./animation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Animations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./emu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">EMU-SDMS integration</span></span></a>
   </div>
 </li>
     </ul>
@@ -285,7 +291,7 @@ Where do the transcriptions come from?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you call <code>praatpicture()</code> with <em>only</em> a single argument giving the location of a sound file, as above, the function will look for the <code>.wav</code> file you passed, and also a <code>.TextGrid</code> file in the same directory with the same base name. You don’t <em>have</em> to plot annotations, but in that case you will have to tell <code>praatpicture()</code> using the <code>frames</code> argument as shown below. So if there’s no <code>.TextGrid</code> file, you will get an error. We will see later in <a href="make_TextGrid.html"><span>Chapter&nbsp;11</span></a> that it is also possible to annotate sound files interactively using R.</p>
+<p>If you call <code>praatpicture()</code> with <em>only</em> a single argument giving the location of a sound file, as above, the function will look for the <code>.wav</code> file you passed, and also a <code>.TextGrid</code> file in the same directory with the same base name. You don’t <em>have</em> to plot annotations, but in that case you will have to tell <code>praatpicture()</code> using the <code>frames</code> argument as shown below. So if there’s no <code>.TextGrid</code> file, you will get an error. We will see later in <a href="make_TextGrid.html"><span>Chapter&nbsp;12</span></a> that it is also possible to annotate sound files interactively using R.</p>
 </div>
 </div>
 <section id="showing-part-of-a-sound-file" class="level2" data-number="1.1">
@@ -381,6 +387,7 @@ Where do the transcriptions come from?
 </div>
 </div>
 </div>
+<p>(It doesn’t really have to be percentages – passing <code>c(3,5,2)</code> for example would give the same result).</p>
 </section>
 <section id="axis-appearance" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="axis-appearance"><span class="header-section-number">1.4</span> Axis appearance</h2>
