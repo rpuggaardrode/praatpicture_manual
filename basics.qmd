@@ -94,6 +94,8 @@ praatpicture('ex/ex.wav',
              proportion = c(15,70,15))
 ```
 
+(It doesn't really have to be percentages -- passing `c(3,5,2)` for example would give the same result).
+
 ## Axis appearance
 
 In accordance with Praat default settings, the default is to show only start and end times on the x-axis. This can be controlled with the `start_end_only` argument, which by default is set to `TRUE`:

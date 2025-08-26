@@ -1,4 +1,4 @@
-# Base R graphics options
+# Base R graphics options {#sec-par}
 
 ```{r}
 #| echo: false
@@ -156,4 +156,4 @@ The `lty` argument controls the global line type. You could use this if you want
 
 ## Saving plots
 
-You can save plots however you usually like to do this. If you use RStudio, you can use the `Export` function from the plotting window in the GUI. You can also use `png()`, `pdf()`, `tiff()`, and related functions to your heart's content.
+You can save plots however you usually like to do this. If you use RStudio, you can use the `Export` function from the plotting window in the GUI, although my recommendation would be *not* to do so -- plots created in this way typically don't look very nice. You can also use `png()`, `pdf()`, `tiff()`, and related functions to your heart's content.

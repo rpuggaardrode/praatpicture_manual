@@ -138,3 +138,55 @@ praatpicture('ex/index.wav',
 ```
 
 You typically won't want to pass a number larger than `1`, but it could make sense if you're plotting only a very short sound snippet.
+
+## Appearance of the y-axis
+
+The energy range shown on the y-axis can be controlled with the `wave_energyRange` argument. By default it is simply set to follow the minima and maxima in the signal, but you can set your own values by passing a vector of two numbers. Here we increase the amount of white space in the waveform:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index.wav', 
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_energyRange = c(-0.1, 0.1))
+```
+
+This could for example be useful if you want to add text or arrows to the waveform plot, as we will see later in @sec-highlight.
+
+This can also be useful if two different wave channels with different information are being plotted, and we want to ensure that the energy range is comparable: 
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/multichannel.wav', 
+             start = 0.6, end = 2.4,
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_channelNames = c('audio', 'airflow', 'Pio', 'EGG'),
+             wave_color=c('red', 'black', 'orange', 'blue'),
+             wave_energyRange = c(-1, 1))
+```
+Of course, these signals aren't really all that comparable in the first place, but it's easy to imagine a situation where they would be. For example when plotting the oral and nasal channel from a nasalance device.
+
+The number of digits to be printed along the y-axis can be controlled with the `wave_axisDigits` argument. By default, 3 digits are shown, but it's easy to print more if you want:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index.wav', 
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_axisDigits = 5)
+```
+
+Often, these exact values don't tell us all that much. You can suppress the y-axis entirely by setting `wave_axisDigits = 0`:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/index.wav', 
+             frames = c('sound', 'TextGrid'),
+             proportion = c(70, 30),
+             wave_axisDigits = 0)
+```

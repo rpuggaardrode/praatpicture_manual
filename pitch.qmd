@@ -183,7 +183,7 @@ praatpicture('ex/ex.wav',
              pitch_color = 'blue')
 ```
 
-Some fancier coloring options are available when a pitch track is overlaid on spectrograms; more on that in @sec-pitch-overlay.
+Some fancier coloring options are available when a pitch track is overlaid on spectrograms or waveforms; more on that in @sec-pitch-overlay and @sec-pitch-wave-overlay.
 
 ### Axis label 
 
@@ -224,7 +224,6 @@ praatpicture('ex/ex.wav',
              wave_color = 'grey',
              pitch_plotOnSpec = TRUE,
              pitch_color = 'blue',
-             pitch_scale = 'log',
              pitch_freqRange = c(80,250),
              pitch_axisLabel = 'f0 (Hz)')
 ```
@@ -242,7 +241,6 @@ praatpicture('ex/ex.wav',
              wave_color = 'grey',
              pitch_plotOnSpec = TRUE,
              pitch_color = c('blue', 'lightblue'),
-             pitch_scale = 'log',
              pitch_freqRange = c(80,250),
              pitch_axisLabel = 'f0 (Hz)')
 ```
@@ -259,11 +257,39 @@ praatpicture('ex/ex.wav',
              pitch_plotOnSpec = TRUE,
              pitch_plotType = 'speckle',
              pitch_color = c('black', 'white'),
-             pitch_scale = 'log',
              pitch_freqRange = c(80,250),
              pitch_axisLabel = 'f0 (Hz)')
 ```
 
+## Overlaying on waveform {#sec-pitch-wave-overlay}
+
+It's also possible to overlay pitch on the waveform. This works much the same as overlaying pitch on the spectrogram, controlled with the `pitch_plotOnWave` argument. 
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'spectrogram'),
+             proportion = c(50,50),
+             wave_color = 'grey',
+             pitch_plotOnWave = TRUE)
+```
+
+As above, all the default pitch plotting parameters also apply when plotting pitch on a waveform:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'spectrogram'),
+             proportion = c(50,50),
+             wave_color = 'grey',
+             pitch_plotOnWave = TRUE,
+             pitch_color = c('black','white'),
+             pitch_plotType = 'speckle',
+             pitch_freqRange = c(80,250),
+             pitch_axisLabel = 'f0 (Hz)')
+```
 
 ## Calculate using R or Praat? {#sec-pitch-praat}
 

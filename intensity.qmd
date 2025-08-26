@@ -8,6 +8,8 @@ library(praatpicture)
 
 The intensity contours plotted by `praatpicture` by default look similar to those produced by Praat, but users have several options regarding both the general appearance of intensity contours and the underlying signal processing, or to capitalize on the signal processing provided by Praat (see @sec-intensity-praat). We'll cover those options here.
 
+## Apperance
+
 ### Range
 
 By default, the amplitude range for intensity plots is dynamically determined to show the entire contour. The amplitude range can be controlled with the `intensity_range` argument. Here, we show 0--80 dB:
@@ -149,6 +151,35 @@ praatpicture('ex/ex.wav',
 ```
 
 :::
+
+### Overlaying on waveform {#sec-intensity-wave-overlay}
+
+Intensity can also be overlaid on the waveform. This is controlled using the `intensity_plotOnWave` argument.
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'spectrogram'),
+             proportion = c(50,50),
+             wave_color = 'grey',
+             intensity_plotOnWave = TRUE)
+```
+
+As with spectrogram overlays, all the other arguments controlling intensity appearance can still be controlled in the usual way:
+
+```{r}
+#| fig-align: center
+
+praatpicture('ex/ex.wav',
+             frames = c('sound', 'spectrogram'),
+             proportion = c(50,50),
+             wave_color = 'grey',
+             intensity_plotOnWave = TRUE,
+             intensity_range = c(0, 80),
+             intensity_color = c('darkgreen','green'),
+             intensity_axisLabel = 'Root-mean-squared amplitude (dB)')
+```
 
 ## Calculate using R or Praat? {#sec-intensity-praat}
 

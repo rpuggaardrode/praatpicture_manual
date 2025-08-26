@@ -18,6 +18,7 @@ book:
     - intensity.qmd
     - highlight.qmd
     - par.qmd
+    - slice.qmd
     - make_TextGrid.qmd
     - talking_praatpicture.qmd
     - animation.qmd
